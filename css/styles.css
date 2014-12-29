@@ -1,0 +1,64 @@
+html, body {
+	background:#4099FF;
+}
+
+#header {
+	position: absolute;
+	width:800px;
+	line-height:80px;
+	left:50%;
+	margin-left:-400px;
+	text-align: center;
+	color:white;
+	font-size:4em;
+	font-family: 'Poiret One', cursive;
+}
+
+
+.vid {
+	position: absolute;
+	background: black;
+	width:640px;
+	height:480px;
+	top:125px;
+}
+#localVid {
+	left:5%;
+
+}
+#remoteVid {
+	right:5%;
+	background: none;
+	border:solid black 1px;
+	text-align: center;
+	font-size:2em;
+
+}
+
+
+
+#start {
+	position:absolute;
+	border:solid white 2px;
+	font-size:2em;
+	line-height:2em;
+	width:300px;
+	left:50%;
+	margin-left:-150px;
+	bottom:20px;
+	text-align: center;
+	color:white;
+	border-radius:5px;
+
+	transition:  .25s ease-in-out;
+	-moz-transition:  .25s ease-in-out;
+	-webkit-transition:  .25s ease-in-out;
+}
+#start:hover {
+	background:white;
+	color:#4099FF;
+	cursor: pointer;
+}
+.fa-times {
+	color:red;
+}
