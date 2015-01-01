@@ -157,11 +157,8 @@ function rageQuit()
 			}
 		});	
 }
-
-
-
     // reset things on leaving page
-    window.onbeforeunload = function(e) {
+    window.onunload = window.onbeforeunload = function(e) {
     	return rageQuit();
     };
 
