@@ -142,7 +142,7 @@ function rageQuit()
 {
 	// don't delete an entry if we didnt just create one!
 	if (id == "undefined")
-		return 'hey';
+		return;
 
 	// if we're looking for a partner and then quit
 	// search database for our id and delete the request
