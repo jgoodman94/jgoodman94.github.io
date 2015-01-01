@@ -82,6 +82,19 @@ $(function() {
 			//change filter on click
 			document.getElementById("localVid").addEventListener('click', changeFilter, false);
 
+			webrtc.sendToAll('sepia');
+
+			webrtc.on('sepia', function() {
+				console.log('sepia sent?');
+			})
+
+
+
+
+
+
+			// send filters to other person
+
 
 });
 
