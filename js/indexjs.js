@@ -1,6 +1,7 @@
 
 
 $(function() {
+	alert('hey');
 
 	// initialize with API key
 	Parse.initialize("cLQ1TweezsDIp2ysSvYvXETLozVZIMdRfExqEg7u", "fgapofWIKhtAQfuToqAbRRlNHCAfBbFR6pusDzBk");
