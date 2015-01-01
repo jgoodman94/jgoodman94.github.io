@@ -6,7 +6,14 @@ $(function() {
 	Parse.initialize("cLQ1TweezsDIp2ysSvYvXETLozVZIMdRfExqEg7u", "fgapofWIKhtAQfuToqAbRRlNHCAfBbFR6pusDzBk");
 
 
+
 	id = "undefined";
+
+
+		window.setInterval(function() {
+		console.log(id);
+
+	}, 1000);
 
     // webRTC object
     var webrtc = new SimpleWebRTC({
