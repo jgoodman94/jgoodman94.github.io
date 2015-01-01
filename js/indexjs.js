@@ -1,8 +1,7 @@
 
 
 $(function() {
-	alert('hey');
-
+	
 	// initialize with API key
 	Parse.initialize("cLQ1TweezsDIp2ysSvYvXETLozVZIMdRfExqEg7u", "fgapofWIKhtAQfuToqAbRRlNHCAfBbFR6pusDzBk");
 
@@ -136,7 +135,7 @@ function rageQuit()
 {
 	// don't delete an entry if we didnt just create one!
 	if (id == "undefined")
-		return;
+		return 'hey';
 
 	// if we're looking for a partner and then quit
 	// search database for our id and delete the request
