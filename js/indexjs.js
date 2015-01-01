@@ -144,6 +144,7 @@ function rageQuit()
 	// don't delete an entry if we didnt just create one!
 	if (id == "undefined")
 		return "IT WAS UNDEFINED";
+	return "...";
 
 	// if we're looking for a partner and then quit
 	// search database for our id and delete the request
@@ -152,6 +153,7 @@ function rageQuit()
 	query.get(id, {
 		success: function(myObj) {				
 			myObj.destroy({});
+			return "DESTROYED";
 		},
 		error: function() {
 				// parse error with error code
