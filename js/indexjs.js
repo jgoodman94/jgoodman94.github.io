@@ -176,4 +176,6 @@ function rageQuit()
 			}
 
 			//change filter on click
-			document.querySelector('video').addEventListener('click', changeFilter, false);
+			$('#localVid').click(function() {
+				changeFilter();
+			})
