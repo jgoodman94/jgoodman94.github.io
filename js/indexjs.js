@@ -82,7 +82,7 @@ $(function() {
 			//change filter on click
 			document.getElementById("localVid").addEventListener('click', changeFilter, false);
 
-			webrtc.sendToAllf('sepia');
+			webrtc.sendDirectlyToAll('sepia');
 
 			webrtc.on('sepia', function() {
 				console.log('sepia sent?');
