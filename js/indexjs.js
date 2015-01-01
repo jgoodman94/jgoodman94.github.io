@@ -7,7 +7,8 @@ $(function() {
 
 
 
-	id = "undefined";
+	//id = "undefined";
+	looking = false;
 
 
 	/*window.setInterval(function() {
@@ -33,6 +34,7 @@ $(function() {
 
     // click "go", aka 'I'm ready to chat!'
     $('#start').click(function() {
+    	looking = true;
     	$('#childTop').html('');
     	$('#childFoot').html('');    	
         // look for some frands, join if there
@@ -41,7 +43,8 @@ $(function() {
 
     // get rid of spinner when friend comes on
     webrtc.on('peerStreamAdded', function() {
-    	id = "undefined";
+    	looking = false;
+    	//id = "undefined";
     	$('#disconnected').hide();
     	$('#responsive').hide();
     	$('#next').show();
@@ -57,6 +60,7 @@ $(function() {
 
     $('#next').click(function() {
     	webrtc.leaveRoom();
+    	looking = true;
     	$('#disconnected').hide();
     	$('#responsive').hide();
     	// look for some frands, join if there
@@ -140,16 +144,12 @@ function destroyPartner(searchResult) {
 
 function rageQuit()
 {
-	// don't delete an entry if we didnt just create one!
-	if (id == "undefined")
-		return "IT WAS UNDEFINED";
-
 	// if we're looking for a partner and then quit
 	// search database for our id and delete the request
 	var Request = Parse.Object.extend("Request");
 	var query = new Parse.Query(Request);
 	query.get(id, {
-		success: function(myObj) {				
+		success: function(myObj) {	
 			myObj.destroy({});
 		},
 		error: function() {
@@ -160,7 +160,10 @@ function rageQuit()
 }
     // reset things on leaving page
     window.onunload = window.onbeforeunload = function(e) {
-    	return rageQuit();
+    	if (looking == true)
+    		return rageQuit();
+
+    	return;
     };
 
 
