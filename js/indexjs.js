@@ -10,11 +10,11 @@ $(function() {
 	id = "undefined";
 
 
-		window.setInterval(function() {
+	/*window.setInterval(function() {
 		console.log(id);
 
 	}, 1000);
-
+*/
     // webRTC object
     var webrtc = new SimpleWebRTC({
         // the id/element dom element that will hold "our" video
