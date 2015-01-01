@@ -176,4 +176,4 @@ function rageQuit()
 			}
 
 			//change filter on click
-			document.getElementById(localVid).addEventListener('click', changeFilter, false);
+			document.getElementById("localVid").addEventListener('click', changeFilter, false);
