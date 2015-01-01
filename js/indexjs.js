@@ -7,10 +7,6 @@ $(function() {
 
 
 	id = "undefined";
-	alert('hey');
-
-
-
 
     // webRTC object
     var webrtc = new SimpleWebRTC({
