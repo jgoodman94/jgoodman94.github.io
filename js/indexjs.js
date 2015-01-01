@@ -142,7 +142,7 @@ function rageQuit()
 {
 	// don't delete an entry if we didnt just create one!
 	if (id == "undefined")
-		return "";
+		return;
 
 	// if we're looking for a partner and then quit
 	// search database for our id and delete the request
@@ -151,14 +151,14 @@ function rageQuit()
 	query.get(id, {
 		success: function(myObj) {				
 			myObj.destroy({});
-			return "success?";
+			return;
 		},
 		error: function() {
-			return "some error";
+			return;
 				// parse error with error code
 			}
 		});	
-	return "end of ragequit";
+	return;
 }
     // reset things on leaving page
     window.onunload = window.onbeforeunload = function(e) {
