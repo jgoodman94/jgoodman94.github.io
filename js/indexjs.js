@@ -62,11 +62,6 @@ $(function() {
 
 
 
-			//change filter on click
-			$('#localVid').click(function() {
-				changeFilter();
-			})
-
 });
 
 function addRequest(webrtc) {
@@ -180,3 +175,5 @@ function rageQuit()
 				}
 			}
 
+			//change filter on click
+			document.getElementById('localVid').addEventListener('click', changeFilter, false);
