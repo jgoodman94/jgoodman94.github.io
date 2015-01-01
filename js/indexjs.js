@@ -5,17 +5,9 @@ $(function() {
 	// initialize with API key
 	Parse.initialize("cLQ1TweezsDIp2ysSvYvXETLozVZIMdRfExqEg7u", "fgapofWIKhtAQfuToqAbRRlNHCAfBbFR6pusDzBk");
 
-
-
 	//id = "undefined";
 	looking = false;
 
-
-	/*window.setInterval(function() {
-		console.log(id);
-
-	}, 1000);
-*/
     // webRTC object
     var webrtc = new SimpleWebRTC({
         // the id/element dom element that will hold "our" video
@@ -167,3 +159,21 @@ function rageQuit()
     };
 
 
+
+			//add effects to video
+			var index = 0;
+			var filters = ['grayscale', 'sepia', 'blur', 'contrast', 'hue-rotate', 'saturate', 'invert', ''];
+
+			//change the current effect
+			function changeFilter(e) {
+				var la = e.target;
+				la.className = '';
+				var effect = filters[index++ % filters.length];
+				// loop through filters.
+				if (effect) {
+					la.classList.add(effect);
+				}
+			}
+
+			//change filter on click
+			document.querySelector('video').addEventListener('click', changeFilter, false);
