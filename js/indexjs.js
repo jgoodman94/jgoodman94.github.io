@@ -151,8 +151,10 @@ function rageQuit()
 	query.get(id, {
 		success: function(myObj) {				
 			myObj.destroy({});
+			return "success?";
 		},
 		error: function() {
+			return "some error";
 				// parse error with error code
 			}
 		});	
