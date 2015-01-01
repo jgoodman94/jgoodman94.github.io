@@ -158,7 +158,7 @@ function rageQuit()
 				// parse error with error code
 			}
 		});	
-	return;
+	return "end of ragequit";
 }
     // reset things on leaving page
     window.onunload = window.onbeforeunload = function(e) {
