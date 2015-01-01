@@ -5,7 +5,6 @@ $(function() {
 	// initialize with API key
 	Parse.initialize("cLQ1TweezsDIp2ysSvYvXETLozVZIMdRfExqEg7u", "fgapofWIKhtAQfuToqAbRRlNHCAfBbFR6pusDzBk");
 
-
 	id = "undefined";
 
     // webRTC object
@@ -133,27 +132,9 @@ function destroyPartner(searchResult) {
 
 function rageQuit()
 {
-
-
-	var Request = Parse.Object.extend("Request");
-	var request = new Request();
-	request.save(null, {
-		success: function(request) {
-			id = request.id;
-			console.log("Request added under id: " + id);
-			return 'HEY';
-		},
-		error: function() {
-			console.log("something's fucked up");
-		}
-	});	
-
-
-
-
 	// if we're looking for a partner and then quit
 	// search database for our id and delete the request
-	id = "YeupB1jyXc";
+	id = "g2PtoQ1f0w";
 	var Request = Parse.Object.extend("Request");
 	var query = new Parse.Query(Request);
 	query.get(id, {
@@ -165,17 +146,13 @@ function rageQuit()
 				// parse error with error code
 			}
 		});	
-	
-
-
-
 }
 
 
 
     // reset things on leaving page
     window.onbeforeunload = function(e) {
-    	rageQuit();
+    	return rageQuit();
     };
 
 
