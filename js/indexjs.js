@@ -140,7 +140,6 @@ function destroyPartner(searchResult) {
 
 function rageQuit()
 {
-	id = "G21bcfDm3v";
 	// don't delete an entry if we didnt just create one!
 	if (id == "undefined")
 		return "IT WAS UNDEFINED";
@@ -152,7 +151,6 @@ function rageQuit()
 	query.get(id, {
 		success: function(myObj) {				
 			myObj.destroy({});
-			return "DESTROYED";
 		},
 		error: function() {
 				// parse error with error code
