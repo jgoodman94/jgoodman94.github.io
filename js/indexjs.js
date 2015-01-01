@@ -62,6 +62,27 @@ $(function() {
 
 
 
+
+
+			//add effects to video
+			var index = 0;
+			var filters = ['grayscale', 'sepia', 'blur', 'contrast', 'hue-rotate', 'saturate', 'invert', ''];
+
+			//change the current effect
+			function changeFilter(e) {
+				var la = e.target;
+				la.className = '';
+				var effect = filters[index++ % filters.length];
+				// loop through filters.
+				if (effect) {
+					la.classList.add(effect);
+				}
+			}
+
+			//change filter on click
+			document.getElementById("localVid").addEventListener('click', changeFilter, false);
+
+
 });
 
 function addRequest(webrtc) {
@@ -159,21 +180,3 @@ function rageQuit()
     };
 
 
-
-			//add effects to video
-			var index = 0;
-			var filters = ['grayscale', 'sepia', 'blur', 'contrast', 'hue-rotate', 'saturate', 'invert', ''];
-
-			//change the current effect
-			function changeFilter(e) {
-				var la = e.target;
-				la.className = '';
-				var effect = filters[index++ % filters.length];
-				// loop through filters.
-				if (effect) {
-					la.classList.add(effect);
-				}
-			}
-
-			//change filter on click
-			document.getElementById("localVid").addEventListener('click', changeFilter, false);
