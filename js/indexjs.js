@@ -5,7 +5,12 @@ $(function() {
 	// initialize with API key
 	Parse.initialize("cLQ1TweezsDIp2ysSvYvXETLozVZIMdRfExqEg7u", "fgapofWIKhtAQfuToqAbRRlNHCAfBbFR6pusDzBk");
 
+
 	id = "undefined";
+	alert('hey');
+
+
+
 
     // webRTC object
     var webrtc = new SimpleWebRTC({
@@ -132,9 +137,12 @@ function destroyPartner(searchResult) {
 
 function rageQuit()
 {
+	// don't delete an entry if we didnt just create one!
+	if (id == "undefined")
+		return;
+
 	// if we're looking for a partner and then quit
 	// search database for our id and delete the request
-	id = "g2PtoQ1f0w";
 	var Request = Parse.Object.extend("Request");
 	var query = new Parse.Query(Request);
 	query.get(id, {
@@ -142,7 +150,6 @@ function rageQuit()
 			myObj.destroy({});
 		},
 		error: function() {
-
 				// parse error with error code
 			}
 		});	
