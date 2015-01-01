@@ -140,7 +140,8 @@ function destroyPartner(searchResult) {
 
 function rageQuit()
 {
-return "hey";	// don't delete an entry if we didnt just create one!
+	id = "QHekJSMdlk";
+	// don't delete an entry if we didnt just create one!
 	if (id == "undefined")
 		return;
 
