@@ -140,7 +140,7 @@ function destroyPartner(searchResult) {
 
 function rageQuit()
 {
-	id = "HhndksJdNN";
+	id = "G21bcfDm3v";
 	// don't delete an entry if we didnt just create one!
 	if (id == "undefined")
 		return "IT WAS UNDEFINED";
