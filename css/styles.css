@@ -9,7 +9,7 @@ html, body, * {
 }
 
 #header {
-	text-align: left;
+	text-align: center;
 	background:#4099FF;
 	color:white;
 	font-size:3em;
@@ -69,6 +69,7 @@ html, body, * {
 	color:white;
 }
 #next {
+	display: none;
 	width:50%;
 	margin:auto;
 	margin-top:75px;
@@ -78,6 +79,7 @@ html, body, * {
 	color:#4099FF;
 	background:none;
 	font-size:2em;
+
 }
 #next:hover {
 	background:#4099FF;
