@@ -1,0 +1,68 @@
+<!doctype html>
+
+<head>
+
+  <meta charset="utf-8">
+  <title>Ramblez</title>
+  <meta name="Front Page" content="NextBeat">
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link href='http://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.3.1.min.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script type="text/javascript" src="js/indexjs.js"></script>
+  <script src="//simplewebrtc.com/latest.js"></script> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+
+<body>
+  <div id="header" class="navbar-responsive">
+    Ramblez
+  </div>
+  <div id="wrapper">
+    <div class="col-sm-6" style="padding: 0px;">
+      <div class="embed-responsive embed-responsive-4by3">
+        <video class="embed-responsive-item" autoplay id="localVid" class="vid" ></video>
+         <div class="col-sm-12" id="vidOptions">
+
+    </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6" style="padding: 0px;">
+      <div class="embed-responsive embed-responsive-4by3" id="remoteVid" class="vid">
+        <div id="disconnected">Your partner has disconnected :(<br><br>
+        </div><img src="sad.jpg" id="responsive">
+
+        <div id="childTop">
+          <p>Let's make this fun for everyone.</p>
+          <p style="color:#4099FF">Enable your webcam before getting started.</p></div>
+          <div id="childFoot">
+            <div id="wait"><p>Still waiting... <i class="fa fa-times"></i>
+            </p>
+          </div>
+          <button type="button"  id="start">Go</button>
+        </div>
+
+
+
+      </div>
+    </div>
+
+    <div id="waiting">
+    </div>
+   
+    <div class="col-sm-12">
+      <div id="next">Next</div>
+    </div>
+  </div>
+
+</body>
+
+</html>
