@@ -1,6 +1,5 @@
 $(function() {
-	//alert('it has been changed');
-
+	alert('it has been changed');
 	vchatCheck();
     //set chat-output size to rest of screen
     window.addEventListener("resize", calcOutputHeight);
@@ -120,7 +119,6 @@ $('.next').click(function() {
 	if (looking == true)
 		return;
 	$('#smallShuffle').css('color','lightgrey');
-	$('#smallShuffle').css('color','blue');
         // leave rooms when u click next
         webrtc.leaveRoom();
        // channel.leave();
