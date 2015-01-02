@@ -126,9 +126,9 @@ $('#next').click(function() {
     var channel = new DataChannel("channel1");
     channel.open("channel1");
 
-    channel.onopen() {
+    channel.onopen = function () {
     	
-    }
+    };
 
 
     $("#localVid").click (function () {
