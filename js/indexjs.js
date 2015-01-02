@@ -142,8 +142,6 @@ $('#next').click(function() {
     	this.value = '';
     });
 
-    var channel = new DataChannel();
-
     channel.onopen = function (userid) {
     	$chatInput.disabled = false;
     	// Tinder like prompting messages here
@@ -161,6 +159,7 @@ $('#next').click(function() {
     };
 });
 
+// add request for chat to database
 function addRequest(webrtc) {
 	var Request = Parse.Object.extend("Request");
 	var request = new Request();
@@ -170,6 +169,7 @@ function addRequest(webrtc) {
 			console.log("Request added under id: " + id);
 			//create webrtc room and text chat room
 			webrtc.joinRoom(id);
+			var channel = new DataChannel();
 			channel.open(id);
 
 		},
@@ -195,6 +195,7 @@ function searchRequest(webrtc) {
 
 				// join webrtc and text chat rooms
 				webrtc.joinRoom(request.id);
+				var channel = new DataChannel();
 				channel.connect(request.id);
 
 				destroyPartner(request.id);
