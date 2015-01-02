@@ -10,7 +10,7 @@ $(function() {
 		$("#chat-output").height(leftover);
 		$("#chat-output-row").height(leftover);
 	};
-	var channel = new DataChannel();
+	channel = new DataChannel();
 
         //TEXT FUNCTIONS
         var $chatOutput = $('#chat-output');
