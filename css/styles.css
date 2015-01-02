@@ -75,6 +75,8 @@ html, body, * {
 	height: auto;
 	background: white;
 	color: black;
+	overflow-y: scroll;
+	word-wrap:break;
 }
 
 #start {
