@@ -247,6 +247,7 @@ function giveUpIn(numMillis) {
 		$('#disconnected').show();
 		$('#doggy').show();
 		$('#next').show();
+		destroyPartner(id);
 	}, numMillis);
 }
 
