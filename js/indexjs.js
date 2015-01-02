@@ -27,6 +27,7 @@ $(function() {
     // click "go", aka 'I'm ready to chat!'
     $('#start').click(function() {
     	giveUp = window.setTimeout(function() {
+    		looking = false;
     		$('#remoteVid').html('');
     		$('#disconnected').html('Everyone\'s busy in their chats, or very few people are online at the moment.<br>Try again?');
     		$('#disconnected').show();
