@@ -1,5 +1,5 @@
 $(function() {
-    //alert('it has been changed');
+    alert('it has been changed');
     vchatCheck();
     //set chat-output size to rest of screen
     window.addEventListener("resize", calcOutputHeight);
@@ -18,7 +18,7 @@ $(function() {
     $chatInput = $('#chat-input');
 
     // for automatic scroll
-    var chatOutput = document.getElementById('chat-output');
+    chatOutput = document.getElementById('chat-output');
 
     $chatInput.keyup(function(e) {
     	if (e.keyCode != 13) return;
@@ -212,13 +212,12 @@ function searchRequest(webrtc) {
                 channel.onopen = function() {
                 	$chatInput.disabled = false;
                     // Tinder like prompting messages here
-                    $chatOutput.append('Say hi!<br>');
+                    $chatOutput.append('<b>Say hi!</b><br>');
                     $chatInput.focus();
                 };
 
                 channel.onmessage = function(message) {
                 	$chatOutput.append('<span style="color:#fac03b"><b>Stranger:</b></span> ' + message + '<br />');
-                	console.log('LOOK AT THIS MESSAGE: ' + message);
                 	chatOutput.scrollTop = chatOutput.scrollHeight;
                 };
 
