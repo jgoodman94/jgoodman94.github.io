@@ -40,9 +40,6 @@ html, body, * {
 	color:white;
 	font-size:3em;
 }
-.row {
-	margin:0;
-}
 
 .vid {
 	background: black;
@@ -63,12 +60,18 @@ html, body, * {
 	text-align: center;
 	font-size:2em;
 }
+
+
 .row{
-	margin-bottom:75px;
+	margin-bottom:0px;
 	margin-left: 0px;
 	margin-right: 0px;
 }
 
+#chat-output {
+	margin-bottom: 0px;
+	height: auto;
+}
 
 #start {
 	display:none;
@@ -145,9 +148,6 @@ html, body, * {
 .fa-check-circle {
 	color:#3ACC4C;
 }
-.row {
-}
-
 
 /*css loader*/
 .spinner {

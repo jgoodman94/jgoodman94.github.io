@@ -8,13 +8,23 @@
   <meta name="Front Page" content="Shuffler">
   <meta name="viewport" content="width=device-width">
   <link rel="icon" type="image/png" href="favicon.png">
+<<<<<<< HEAD
 
+=======
+  <link href='http://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.3.1.min.js"></script>
+>>>>>>> text-chat
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
   <!-- style sheets and fonts -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"> 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<<<<<<< HEAD
+=======
+  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/styles.css">
+>>>>>>> text-chat
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
@@ -41,6 +51,7 @@
   </div>
 
   <div id="wrapper">
+<<<<<<< HEAD
     <div class="col-sm-6" style="padding: 0px;">
       <div class="embed-responsive embed-responsive-4by3">
         <video class="embed-responsive-item" autoplay id="localVid" class="vid" ></video>
@@ -68,22 +79,58 @@
           <div id="childFoot">
             <div id="wait"><p>Still waiting... <i class="fa fa-times"></i>
             </p>
-          </div>
-          <button type="button"  id="start">Go</button>
+=======
+    <div id="vidrow" class="row" style="margin-left: 0px; margin-right: 0px;">
+      <div class="col-sm-6" style="padding: 0px;">
+        <div class="embed-responsive embed-responsive-4by3">
+          <video class="embed-responsive-item" autoplay id="localVid" class="vid" ></video>
+           <div class="col-sm-12" id="vidOptions"></div>
         </div>
+      </div> <!-- left column -->
+
+      <div class="col-sm-6" style="padding: 0px;">
+        <div class="embed-responsive embed-responsive-4by3" id="remoteVid" class="vid">
+          <div id="disconnected">Your partner has disconnected :(<br><br>
+          </div><img src="sad.jpg" id="responsive">
+
+          <div id="childTop">
+            <p>Let's make this fun for everyone.</p>
+            <p style="color:#4099FF">Enable your webcam before getting started.</p></div>
+            <div id="childFoot">
+              <div id="wait"><p>Still waiting... <i class="fa fa-times"></i>
+              </p>
+            </div>
+            <button type="button"  id="start">Go</button>
+>>>>>>> text-chat
+          </div>
+        </div>
+      </div> <!-- right column -->
+
+    </div> <!-- video row -->
+   
 
 
+  <div id="chat-output" style="background: black; color: white;">Welltext!</div>
 
-      </div>
-    </div>
-
+<<<<<<< HEAD
     <div id="waiting">
     </div>
 
+=======
+   <div id="chat-input-row" class="row">
+>>>>>>> text-chat
     <div class="col-sm-12">
       <div id="next">Next</div>
+      <div class="input-group">
+        <input id="chat-input" type="text" class="form-control" placeholder="Say Hi!">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button">Send!</button>
+          </span>
+      </div><!-- /input-group -->
     </div>
-  </div>
+    </div> <!-- chat input row -->
+  </div><!--- /wrapper -->
+
 
 </body>
 
