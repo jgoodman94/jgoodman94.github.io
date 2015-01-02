@@ -59,10 +59,14 @@ $(function() {
 $('#localVid').click(function() {
 	webrtc.sendToAll('chat', {data: '!!!some text!!!'});
 	peer.send('chat', {data: '!!!!!!!!!!! sent via A'});
-}
+});
 
-webrtc.on('message', function(){
-	
+webrtc.on('message', function(message){
+	if (message.type === 'offer') {
+	} else if (message.type === 'chat') {
+		console.log('>>>>> chat ');
+		console.log(message); 
+	}
 });
 
 
