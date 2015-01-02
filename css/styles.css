@@ -145,6 +145,7 @@ html, body, * {
 	bottom:0;
 }
 #smallShuffle {
+	display: none;
 	outline: none;
 	z-index: 100;
 	color:#4099FF;
