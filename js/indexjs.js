@@ -1,7 +1,7 @@
 
 
 $(function() {
-	
+	vchatCheck();
 	// initialize with API key
 	Parse.initialize("cLQ1TweezsDIp2ysSvYvXETLozVZIMdRfExqEg7u", "fgapofWIKhtAQfuToqAbRRlNHCAfBbFR6pusDzBk");
 
@@ -193,6 +193,9 @@ function giveUpIn(numMillis) {
 	}, numMillis);
 }
 
+
+
+
 function rageQuit()
 {
 	// if we're looking for a partner and then quit
@@ -217,4 +220,46 @@ function rageQuit()
     	return;
     };
 
+
+
+// check if browser will support vchat
+function vchatCheck() {
+	var alertMessage = '';
+	console.log('browser version: ' + bowser.version);
+
+	if (bowser.name == 'Chrome')
+	{
+		if (bowser.version < 23)
+		{
+			alertMessage = 'Please update Chrome if you want to video chat.';
+			$('#modal').text(alertMessage);
+			$('#modal').show();
+		}
+	}
+	else if (bowser.name == 'Firefox')
+	{
+		if (bowser.version < 22)
+		{
+
+			alertMessage = 'Please update Firefox if you want to videochat.';
+			$('#modal').text(alertMessage);
+			$('#modal').show();
+		}
+	}
+	else if (bowser.name == 'Opera')
+	{
+		if (bowser.version < 18)
+		{
+			alertMessage = 'Please update Opera if you want to videochat.';
+			$('#modal').text(alertMessage);
+			$('#modal').show();
+		}
+	}
+	else
+	{
+		alertMessage = 'Download Chrome or Firefox if you want to videochat.'
+		$('#modal').text(alertMessage);
+		$('#modal').show();
+	}
+}
 
