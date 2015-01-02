@@ -134,7 +134,7 @@ $('#next').click(function() {
     var $chatOutput = $('#chat-output');
     var $chatInput = $('#chat-input');
 
-    chatInput.onkeypress = function (e) {
+    $chatInput.onkeypress = function (e) {
     	if (e.keyCode != 13) return;
     	channel.send(this.value);
     	$chatOutput.append('Me: ' + this.value + '<br />');
