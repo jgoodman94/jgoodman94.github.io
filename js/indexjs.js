@@ -1,5 +1,5 @@
 $(function() {
-	alert('it has been changed');
+	//alert('it has been changed');
 	vchatCheck();
     //set chat-output size to rest of screen
     window.addEventListener("resize", calcOutputHeight);
@@ -69,7 +69,6 @@ $(function() {
     // get rid of spinner when friend comes on
     webrtc.on('peerStreamAdded', function() {
     	window.clearTimeout(giveUp);
-    	alert('peer added');
     	looking = false;
         //id = "undefined";
         chatInput.disabled = false;
