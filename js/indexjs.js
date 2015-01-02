@@ -1,5 +1,5 @@
 $(function() {
-	alert('it has been changed');
+	//alert('it has been changed');
 	vchatCheck();
     //set chat-output size to rest of screen
     window.addEventListener("resize", calcOutputHeight);
@@ -12,6 +12,24 @@ $(function() {
         $("#chat-output-row").height(leftover);
     };
     channel = new DataChannel();
+
+    channel.onopen = function() {
+    	$chatInput.disabled = false;
+                    // Tinder like prompting messages here
+                    $chatOutput.append('Say hi!<br>');
+                    $chatInput.focus();
+                };
+
+                channel.onmessage = function(message) {
+                	$chatOutput.append('<span style="color:#fac03b"><b>Stranger:</b></span> ' + message + '<br />');
+                	console.log('LOOK AT THIS MESSAGE: ' + message);
+                	chatOutput.scrollTop = chatOutput.scrollHeight;
+                };
+
+                channel.onleave = function(userid) {
+                    //$chatOutput.innerHTML = userid + ' Left.<hr />' + $chatOutput.innerHTML;
+                };
+
 
     //TEXT FUNCTIONS
     $chatOutput = $('#chat-output');
@@ -164,29 +182,12 @@ function addRequest(webrtc) {
 
 
 
-            channel.onopen = function() {
-            	$chatInput.disabled = false;
-        // Tinder like prompting messages here
-        $chatOutput.append('Say hi!<br>');
-        $chatInput.focus();
-    };
 
-    channel.onmessage = function(message) {
-    	$chatOutput.append('<span style="color:#fac03b"><b>Stranger:</b></span> ' + message + '<br />');
-    	console.log('LOOK AT THIS MESSAGE: ' + message);
-    	chatOutput.scrollTop = chatOutput.scrollHeight;
-    };
-
-    channel.onleave = function(userid) {
-        //$chatOutput.innerHTML = userid + ' Left.<hr />' + $chatOutput.innerHTML;
-    };
-
-
-},
-error: function() {
-	console.log("something's fucked up");
-}
-});
+        },
+        error: function() {
+        	console.log("something's fucked up");
+        }
+    });
 }
 
 // returns either request id or undefined
@@ -209,22 +210,6 @@ function searchRequest(webrtc) {
 
 
 
-    channel.onopen = function() {
-        $chatInput.disabled = false;
-        // Tinder like prompting messages here
-        $chatOutput.append('Say hi!<br>');
-        $chatInput.focus();
-    };
-
-    channel.onmessage = function(message) {
-        $chatOutput.append('<span style="color:#fac03b"><b>Stranger:</b></span> ' + message + '<br />');
-        console.log('LOOK AT THIS MESSAGE: ' + message);
-        chatOutput.scrollTop = chatOutput.scrollHeight;
-    };
-
-    channel.onleave = function(userid) {
-        //$chatOutput.innerHTML = userid + ' Left.<hr />' + $chatOutput.innerHTML;
-    };
 
 
                 destroyPartner(request.id);
