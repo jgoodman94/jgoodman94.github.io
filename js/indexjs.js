@@ -1,5 +1,5 @@
 $(function() {
-	alert('it has been changed');
+	//alert('it has been changed');
 	vchatCheck();
     //set chat-output size to rest of screen
     window.addEventListener("resize", calcOutputHeight);
@@ -77,7 +77,7 @@ $(function() {
         $('#smallShuffle').show();
         $('#smallShuffle').css('color','#4099FF');
         $('.spinner').hide();
-        $chatOutput.append('<b>Say hi!</b><br>');
+        $chatOutput.append('<span style="background:#4099FF; color:white"><b>Say hi!</b><br></span>');
         $chatInput.focus();
     });
 
