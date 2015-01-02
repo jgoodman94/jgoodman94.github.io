@@ -1,5 +1,5 @@
 $(function() {
-	alert('it has been changed');
+	//alert('it has been changed');
 	vchatCheck();
 	//set chat-output size to rest of screen
 	window.addEventListener("resize", calcOutputHeight);
@@ -91,7 +91,7 @@ $('#next').click(function() {
 	webrtc.leaveRoom();
 	channel.leave();
 
-	channel = new DataChannel();
+	var channel = new DataChannel();
 
 
 	looking = true;
