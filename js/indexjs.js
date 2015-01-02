@@ -90,8 +90,8 @@ $(function() {
 
 
 			// send filters to other person
-			$('#localVid').click(function() {
-				webrtc.sendToAll('sepia');
+			$('#localVid').click(function(peer) {
+				peer.send('sepia');
 			});
 		});
 
