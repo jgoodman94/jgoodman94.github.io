@@ -83,7 +83,7 @@ $(function() {
 			document.getElementById("localVid").addEventListener('click', changeFilter, false);
 
 
-			$('#localVid').click(function() {
+			$('#localVid').click(function(peer) {
 				peer.send('sepia');
 			});
 
