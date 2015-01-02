@@ -72,15 +72,16 @@ html, body, * {
 }
 
 #chat-output {
-	border:solid black 1px;
 	margin-bottom:0px;
 	margin-left:15px;
 	margin-right:15px;
-	height: auto;
 	background: white;
 	color: black;
 	overflow-y: scroll;
 	word-wrap:break-word;
+}
+.input-group {
+	margin-top:5px;
 }
 
 

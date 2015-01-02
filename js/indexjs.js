@@ -5,7 +5,7 @@ $(function() {
 	function calcOutputHeight () {
 		var h = $( window ).height();
 		var leftover = h - $('#header').height() - $('#localVid').height() - $('#chat-input-row').height();
-		console.log(leftover);
+		//console.log(leftover);
 		$("#chat-output").height(leftover);
 		$("#chat-output-row").height(leftover);
 	};
@@ -125,24 +125,20 @@ $('#next').click(function() {
     //TEXT FUNCTIONS
 
 
-    $("#localVid").click (function () {
-    	channel.open();
-    	alert("penis");
-    });
-
 
     var $chatOutput = $('#chat-output');
     var $chatInput = $('#chat-input');
 
+    // for automatic scroll
+    var chatOutput = document.getElementById('chat-output');
+
     $chatInput.keyup(function(e) {
-    	$chatOutput.scrollTop = 9999999;
     	if (e.keyCode != 13) return;
     	channel.send(this.value);
-    	$chatOutput.append('Me: ' + this.value + '<br />');
+    	$chatOutput.append('<span style="color:#4099FF">Me:</span> ' + this.value + '<br />');
+    	chatOutput.scrollTop = chatOutput.scrollHeight;
     	this.value = '';
     });
-
-
 
     var channel = new DataChannel();
 
@@ -154,8 +150,8 @@ $('#next').click(function() {
     };
 
     channel.onmessage = function (message, userid) {
-    	$chatOutput.append('Stranger: ' + message + '<br />');
-    	$chatOutput.scrollTop = 9999999;
+    	$chatOutput.append('<b>Stranger:</b> ' + message + '<br />');
+    	chatOutput.scrollTop = chatOutput.scrollHeight;
     };
 
     channel.onleave = function (userid) {
