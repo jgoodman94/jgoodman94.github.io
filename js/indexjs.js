@@ -1,5 +1,5 @@
 $(function() {
-	//alert('it has been changed');
+	alert('it has been changed');
 	vchatCheck();
     //set chat-output size to rest of screen
     window.addEventListener("resize", calcOutputHeight);
@@ -76,8 +76,6 @@ $(function() {
         $('#smallShuffle').show();
         $('#smallShuffle').css('color','#4099FF');
         $('.spinner').hide();
-        $chatOutput.append('<span style="color:red"><b>Say hi!</b><br></span>');
-        $chatInput.focus();
     });
 
     // allow 'next' option when partner leaves
@@ -173,22 +171,19 @@ function addRequest(webrtc) {
 
 
             // channel handlers
-
             channel.onopen = function() {
+            	// tinder like messages here?
+            	$chatOutput.append('<span style="color:red"><b>Say hi!</b><br></span>');
             	chatInput.disabled = false;
-            	//$('.spinner').hide();
-                        	//$chatInput.disabled = false;
-                // Tinder like prompting messages here
-               // $chatOutput.append('<b>Say hi!</b><br>');
-               // $chatInput.focus();
-           };
+            	$chatInput.focus();
+            };
 
-           channel.onmessage = function(message) {
-           	$chatOutput.append('<span style="color:#fac03b"><b>Stranger:</b></span> ' + message + '<br />');
-           	chatOutput.scrollTop = chatOutput.scrollHeight;
-           };
+            channel.onmessage = function(message) {
+            	$chatOutput.append('<span style="color:#fac03b"><b>Stranger:</b></span> ' + message + '<br />');
+            	chatOutput.scrollTop = chatOutput.scrollHeight;
+            };
 
-           channel.onleave = function() {
+            channel.onleave = function() {
            	//$chatInput.disabled = true;
                 //$chatOutput.innerHTML = userid + ' Left.<hr />' + $chatOutput.innerHTML;
             };
@@ -222,20 +217,18 @@ function searchRequest(webrtc) {
 
                 // channel handlers
                 channel.onopen = function() {
-                	chatInput.disabled = false;
-                	//$('.spinner').hide();
-                	//chatInput.disabled = false;
-                    // Tinder like prompting messages here
-                  //  $chatOutput.append('<b>Say hi!</b><br>');
-                  //  $chatInput.focus();
-              };
+	                // tinder like messages here?
+	                $chatOutput.append('<span style="color:red"><b>Say hi!</b><br></span>');
+	                chatInput.disabled = false;
+	                $chatInput.focus();
+            };
 
-              channel.onmessage = function(message) {
-              	$chatOutput.append('<span style="color:#fac03b"><b>Stranger:</b></span> ' + message + '<br />');
-              	chatOutput.scrollTop = chatOutput.scrollHeight;
-              };
+            channel.onmessage = function(message) {
+            	$chatOutput.append('<span style="color:#fac03b"><b>Stranger:</b></span> ' + message + '<br />');
+            	chatOutput.scrollTop = chatOutput.scrollHeight;
+            };
 
-              channel.onleave = function(userid) {
+            channel.onleave = function(userid) {
               	//$chatInput.disabled = true;
                     //$chatOutput.innerHTML = userid + ' Left.<hr />' + $chatOutput.innerHTML;
                 };
