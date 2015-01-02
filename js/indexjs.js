@@ -82,7 +82,10 @@ $(function() {
 			//change filter on click
 			document.getElementById("localVid").addEventListener('click', changeFilter, false);
 
-			webrtc.sendDirectlyToAll('sepia');
+
+			$('#localVid').click(function() {
+				webrtc.emit('sepia');
+			});
 
 			webrtc.on('sepia', function() {
 				console.log('sepia sent?');
@@ -96,7 +99,7 @@ $(function() {
 			// send filters to other person
 
 
-});
+		});
 
 function addRequest(webrtc) {
 	var Request = Parse.Object.extend("Request");
