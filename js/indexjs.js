@@ -68,6 +68,7 @@ $(function() {
     	window.clearTimeout(giveUp);
     	looking = false;
         //id = "undefined";
+        $chatInput.disabled = false;
         $('#disconnected').hide();
         $('#doggy').hide();
         $('#next').show();
@@ -83,6 +84,7 @@ $(function() {
        // channel.leave();
        $chatOutput.html('');
 
+       $chatInput.disabled = true;
        $('#disconnected').show();
        $('#doggy').show();
        $('#next').show();
@@ -109,7 +111,6 @@ $(function() {
 */
 
 $('#next').click(function() {
-	$chatInput.disabled = true;
         // leave rooms when u click next
         webrtc.leaveRoom();
        // channel.leave();
@@ -168,7 +169,7 @@ function addRequest(webrtc) {
 
             // channel handlers
             channel.onopen = function() {
-            	$chatInput.disabled = false;
+            	//$chatInput.disabled = false;
                 // Tinder like prompting messages here
                // $chatOutput.append('<b>Say hi!</b><br>');
                // $chatInput.focus();
