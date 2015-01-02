@@ -135,7 +135,7 @@ $('#next').click(function() {
     $chatInput.keyup(function(e) {
     	if (e.keyCode != 13) return;
     	channel.send(this.value);
-    	$chatOutput.append('<span style="color:#4099FF">Me:</span> ' + this.value + '<br />');
+    	$chatOutput.append('<span style="color:#4099FF"><b>Me</b>:</span> ' + this.value + '<br />');
     	chatOutput.scrollTop = chatOutput.scrollHeight;
     	this.value = '';
     });
@@ -150,7 +150,7 @@ $('#next').click(function() {
     };
 
     channel.onmessage = function (message, userid) {
-    	$chatOutput.append('<b>Stranger:</b> ' + message + '<br />');
+    	$chatOutput.append('<span style="color:#fac03b"><b>Stranger:</b></span> ' + message + '<br />');
     	chatOutput.scrollTop = chatOutput.scrollHeight;
     };
 
