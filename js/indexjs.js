@@ -1,5 +1,5 @@
 $(function() {
-	alert('it has been changed');
+	//alert('it has been changed');
 	vchatCheck();
     //set chat-output size to rest of screen
     window.addEventListener("resize", calcOutputHeight);
@@ -187,6 +187,10 @@ function addRequest(webrtc) {
            	$chatOutput.append('<span style="color:#fac03b"><b>Stranger:</b></span> ' + message + '<br />');
            	chatOutput.scrollTop = chatOutput.scrollHeight;
            };
+
+           channel.onNewParticipant = function() {
+           	alert('new person here!');
+           }
 
            channel.onleave = function() {
            	channel = new DataChannel();
