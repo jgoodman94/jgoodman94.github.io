@@ -1,5 +1,5 @@
 $(function() {
-	//alert('it has been changed');
+	alert('it has been changed');
 	vchatCheck();
     //set chat-output size to rest of screen
     window.addEventListener("resize", calcOutputHeight);
@@ -189,6 +189,7 @@ function addRequest(webrtc) {
            };
 
            channel.onleave = function() {
+           	channel = new DataChannel();
            	//$chatInput.disabled = true;
                 //$chatOutput.innerHTML = userid + ' Left.<hr />' + $chatOutput.innerHTML;
             };
@@ -234,7 +235,9 @@ function searchRequest(webrtc) {
               	chatOutput.scrollTop = chatOutput.scrollHeight;
               };
 
-              channel.onleave = function(userid) {
+              channel.onleave = function() {
+              	channel = new DataChannel();
+
               	//$chatInput.disabled = true;
                     //$chatOutput.innerHTML = userid + ' Left.<hr />' + $chatOutput.innerHTML;
                 };
