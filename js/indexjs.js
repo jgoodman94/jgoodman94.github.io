@@ -1,5 +1,5 @@
 $(function() {
-	//alert('it has been changed');
+	alert('it has been changed');
 
 	vchatCheck();
     //set chat-output size to rest of screen
@@ -79,7 +79,7 @@ $(function() {
         chatInput.disabled = false;
         $('#disconnected').hide();
         $('#doggy').hide();
-        $('#smallShuffle').show('drop',{direction:"down"}, 500);
+        //$('#smallShuffle').show('drop',{direction:"down"}, 500);
         $('#smallShuffle').css('color','4099FF');
         $('.spinner').hide();
         $chatOutput.append('<b>Say hi!</b><br>');
