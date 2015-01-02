@@ -145,7 +145,7 @@ $('#next').click(function() {
     channel.onopen = function (userid) {
     	$chatInput.disabled = false;
     	// Tinder like prompting messages here
-    	$chatOutput.append('Say hi!');
+    	$chatOutput.append('Say hi!<br>');
     	$chatInput.focus();
     };
 
