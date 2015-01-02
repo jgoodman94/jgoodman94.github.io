@@ -125,6 +125,7 @@ html, body, * {
 
 /*css loader*/
 .spinner {
+	display:none;
 	width: 100px;
 	height: 100px;
 	position: relative;

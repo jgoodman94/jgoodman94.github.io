@@ -49,7 +49,7 @@ $(function() {
     	$('#disconnected').hide();
     	$('#doggy').hide();
     	$('#next').show();
-    	$('.spinner').remove();
+    	$('.spinner').hide();
     });
 
     // allow 'next' option when partner leaves
@@ -138,10 +138,7 @@ function addRequest(webrtc) {
 
 // returns either request id or undefined
 function searchRequest(webrtc) {
-	$('#remoteVid').prepend('<div class="spinner">\
-		<div class="double-bounce1"></div>\
-		<div class="double-bounce2"></div>\
-		</div>');
+	$('.spinner').show();
 	var Request = Parse.Object.extend("Request");
 	var requestQuery = new Parse.Query(Request);
 	requestQuery.first({
