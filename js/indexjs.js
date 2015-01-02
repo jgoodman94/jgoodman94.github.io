@@ -1,5 +1,5 @@
 $(function() {
-	alert('it has been changed');
+	//alert('it has been changed');
 
 	vchatCheck();
     //set chat-output size to rest of screen
@@ -18,12 +18,6 @@ $(function() {
     $chatOutput = $('#chat-output');
     $chatInput = $('#chat-input');
 
-
-    $('#chat-output').click(function() {
-    	console.log('should have changed color...');
-    	$('#smallShuffle').css('color','#4099FF');
-
-    })
 
     // for automatic scroll and disabling stuff
     chatOutput = document.getElementById('chat-output');
@@ -82,7 +76,7 @@ $(function() {
         $('#disconnected').hide();
         $('#doggy').hide();
         $('#smallShuffle').show();
-        $('#smallShuffle').css('color','4099FF');
+        $('#smallShuffle').css('color','#4099FF');
         $('.spinner').hide();
         $chatOutput.append('<b>Say hi!</b><br>');
         $chatInput.focus();
@@ -99,7 +93,7 @@ $(function() {
        $('#doggy').show();
        $('#bigShuffle').show();
        //$('#smallShuffle').show();
-       $('#smallShuffle').css('color','4099FF');
+       $('#smallShuffle').css('color','#4099FF');
    });
 
     /* deal with color changes
@@ -186,7 +180,7 @@ function addRequest(webrtc) {
             // channel handlers
             channel.onopen = function() {
             	$('.spinner').hide();
-            	$('#smallShuffle').css('color','4099FF');
+            	$('#smallShuffle').css('color','#4099FF');
             	//$chatInput.disabled = false;
                 // Tinder like prompting messages here
                // $chatOutput.append('<b>Say hi!</b><br>');
@@ -233,7 +227,7 @@ function searchRequest(webrtc) {
                 // channel handlers
                 channel.onopen = function() {
                 	$('.spinner').hide();
-                	$('#smallShuffle').css('color','4099FF');
+                	$('#smallShuffle').css('color','#4099FF');
                 	//chatInput.disabled = false;
                     // Tinder like prompting messages here
                   //  $chatOutput.append('<b>Say hi!</b><br>');
@@ -299,7 +293,7 @@ function giveUpIn(numMillis) {
 		$('#doggy').show();
 		$('#bigShuffle').show();
 		//$('#smallShuffle').show();
-		$('#smallShuffle').css('color','4099FF');
+		$('#smallShuffle').css('color','#4099FF');
 		destroyPartner(id);
 	}, numMillis);
 }
