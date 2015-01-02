@@ -38,58 +38,72 @@
   <div id="wrapper">
     <div id="header">
       <div id="logo">Shuffler</div>
-      <div id="next"><i class="fa fa-random"></i>      
+      <div class="next"><button id="smallShuffle" class="btn btn-default" type="button"><i class="fa fa-random"></i> </button>        
+      </div>
     </div>
-  </div>
 
-  <div id="vidrow" class="row" style="margin-left: 0px; margin-right: 0px;">
-    <div class="col-sm-6" style="padding: 0px;">
-      <div class="embed-responsive embed-responsive-4by3">
-        <video class="embed-responsive-item" autoplay id="localVid" class="vid" ></video>
-        <div class="col-sm-12" id="vidOptions"></div>
-      </div>
-    </div> <!-- left column -->
+    <div id="vidrow" class="row" style="margin-left: 0px; margin-right: 0px;">
+      <div class="col-sm-6" style="padding: 0px;">
+        <div class="embed-responsive embed-responsive-4by3">
+          <video class="embed-responsive-item" autoplay id="localVid" class="vid" ></video>
+          <div class="col-sm-12" id="vidOptions"></div>
+        </div>
+      </div> <!-- left column -->
 
-    <div class="col-sm-6" style="padding: 0px;">
-      <div class="embed-responsive embed-responsive-4by3" id="remoteVid" class="vid">
+      <div class="col-sm-6" style="padding: 0px; text-align: center;" >
+        <div class="embed-responsive embed-responsive-4by3" id="remoteVid" class="vid">
 
-       <!-- loader -->
-       <div class="spinner">
-        <div class="double-bounce1"></div>
-        <div class="double-bounce2"></div>
-      </div>
+         <!-- loader -->
+         <div class="spinner">
+          <div class="double-bounce1"></div>
+          <div class="double-bounce2"></div>
+        </div>
 
-      <div id="disconnected">Your partner has disconnected :(<br><br>
-      </div><img src="sad.jpg" id="doggy">
+        <div class="row">
+          <img src="sad.jpg" id="doggy" class="img-responsive">
+        </div>
 
-      <div id="childTop">
-        <p>Let's make this fun for everyone.</p>
-        <p style="color:#4099FF">Enable your webcam before getting started.</p></div>
-        <div id="childFoot">
-          <div id="wait"><p>Still waiting... <i class="fa fa-times"></i>
+        <div class="row">
+          <p id="disconnected">Your partner disconnected
           </p>
         </div>
-        <button type="button"  id="start">Go</button>
+
+        <div class="row">
+          <div class="col-sm-4"> </div>
+          <div class="col-sm-4"> 
+            <button id="bigShuffle" class="btn btn-default next" type="button"><i class="fa fa-random"></i> </button>
+          </div>
+          <div class="col-sm-4"></div>
+        </div>
+
+        <div id="childTop">
+          <p>Let's make this fun for everyone.</p>
+          <p style="color:#4099FF">Enable your webcam before getting started.</p></div>
+          <div id="childFoot">
+            <div id="wait"><p>Still waiting... <i class="fa fa-times"></i>
+            </p>
+          </div>
+          <button type="button"  id="start">Go</button>
+        </div>
       </div>
+    </div> <!-- right column -->
+
+  </div> <!-- video row -->
+
+
+
+  <div id="chat-output"></div>
+
+  <div id="chat-input-row" class="row">
+    <div class="col-sm-12">
+      <div class="input-group">
+        <input id="chat-input" type="text" class="form-control" placeholder="Your message" disabled="true">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">Send!</button>
+        </span>
+      </div><!-- /input-group -->
     </div>
-  </div> <!-- right column -->
-
-</div> <!-- video row -->
-
-
-
-<div id="chat-output"></div>
-
-<div id="chat-input-row" class="row">
-  <div class="col-sm-12">
-    <div class="input-group">
-      <input id="chat-input" type="text" class="form-control" placeholder="Your message" disabled="true">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Send!</button>
-      </span>
-    </div><!-- /input-group -->
-  </div>
-</div> <!-- chat input row -->
+  </div> <!-- chat input row -->
 </div><!--- /wrapper -->
 
 

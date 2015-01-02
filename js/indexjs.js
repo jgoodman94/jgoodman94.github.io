@@ -1,5 +1,5 @@
 $(function() {
-	alert('it has been changed');
+	//alert('it has been changed');
 	vchatCheck();
     //set chat-output size to rest of screen
     window.addEventListener("resize", calcOutputHeight);
@@ -74,7 +74,7 @@ $(function() {
         chatInput.disabled = false;
         $('#disconnected').hide();
         $('#doggy').hide();
-        $('#next').show();
+        $('#smallShuffle').slideDown(500);
         $('.spinner').hide();
         $chatOutput.append('<b>Say hi!</b><br>');
         $chatInput.focus();
@@ -89,7 +89,7 @@ $(function() {
        chatInput.disabled = true;
        $('#disconnected').show();
        $('#doggy').show();
-       $('#next').show();
+       $('#bigShuffle').show();
    });
 
     /* deal with color changes
@@ -112,7 +112,7 @@ $(function() {
     });
 */
 
-$('#next').click(function() {
+$('.next').click(function() {
         // leave rooms when u click next
         webrtc.leaveRoom();
        // channel.leave();
@@ -123,7 +123,7 @@ $('#next').click(function() {
        $('#disconnected').hide();
        $('#doggy').hide();
         // look for some frands, join if there
-        $('#next').hide();
+        $('.next').hide();
         // reset text in disconnected
         $('#disconnected').html('Your partner has disconnected :(<br><br>');
         	searchRequest(webrtc);
