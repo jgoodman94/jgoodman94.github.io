@@ -38,9 +38,10 @@ html, body, * {
 	text-align: left;
 	background:#4099FF;
 	color:white;
-	font-size:3em;
 	padding-left: 20px;
 	padding-right: 20px;
+	height:40px;
+	font-size:30px;
 }
 
 .vid {
@@ -71,13 +72,18 @@ html, body, * {
 }
 
 #chat-output {
-	margin-bottom: 0px;
+	border:solid black 1px;
+	margin-bottom:0px;
+	margin-left:15px;
+	margin-right:15px;
 	height: auto;
 	background: white;
 	color: black;
 	overflow-y: scroll;
-	word-wrap:break;
+	word-wrap:break-word;
 }
+
+
 
 #start {
 	display:none;
@@ -103,24 +109,21 @@ html, body, * {
 	padding-bottom:1em;
 	color:white;
 }
-#spacer {
-	height: 60px;
+#logo {
+	position:absolute;
+	left:10px;
 }
 
 #next {
-	width: auto;
-	height: auto;
+	position: absolute;
+	right:10px;
 	cursor:pointer;
-	text-align: right;
 	color:white;
-	font-size:100%;
-	vertical-align: center;
 }
 
 
 #next:hover {
-	background:#4099FF;
-	color:white;
+	color:black;
 	cursor: pointer;
 }
 #wait {

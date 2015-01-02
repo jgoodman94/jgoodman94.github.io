@@ -135,20 +135,20 @@ $('#next').click(function() {
     var $chatInput = $('#chat-input');
 
     $chatInput.keyup(function(e) {
+    	$chatOutput.scrollTop = 9999999;
     	if (e.keyCode != 13) return;
     	channel.send(this.value);
     	$chatOutput.append('Me: ' + this.value + '<br />');
-    	$chatOutput.scrollTop = 9999999;
     	this.value = '';
     });
 
-   
+
 
     var channel = new DataChannel();
 
     channel.onopen = function (userid) {
     	$chatInput.disabled = false;
-    	// Tinder like messages here
+    	// Tinder like prompting messages here
     	$chatOutput.append('Say hi!');
     	$chatInput.focus();
     };
