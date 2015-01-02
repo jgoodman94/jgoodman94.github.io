@@ -1,5 +1,5 @@
 $(function() {
-	//alert('it has been changed');
+	alert('it has been changed');
 	vchatCheck();
     //set chat-output size to rest of screen
     window.addEventListener("resize", calcOutputHeight);
@@ -14,8 +14,8 @@ $(function() {
     channel = new DataChannel();
 
     //TEXT FUNCTIONS
-    var $chatOutput = $('#chat-output');
-    var $chatInput = $('#chat-input');
+    $chatOutput = $('#chat-output');
+    $chatInput = $('#chat-input');
 
     // for automatic scroll
     var chatOutput = document.getElementById('chat-output');
