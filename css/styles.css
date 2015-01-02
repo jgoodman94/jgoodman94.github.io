@@ -108,7 +108,7 @@ html, body, * {
 	text-align: center;
 	bottom:0%;
 }
-#responsive{
+#doggy{
 	display: none;
 	border-radius:100%;
 }
@@ -166,7 +166,7 @@ html, body, * {
 		}
 	}
 
-	
+
 .grayscale {
 	-webkit-filter: grayscale(1);
 	-moz-filter: grayscale(1);
