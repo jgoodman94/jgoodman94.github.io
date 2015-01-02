@@ -249,9 +249,6 @@ function giveUpIn(numMillis) {
 	}, numMillis);
 }
 
-
-
-
 function rageQuit()
 {
 	// if we're looking for a partner and then quit
@@ -313,7 +310,7 @@ function vchatCheck() {
 	}
 	else
 	{
-		alertMessage += '<span style="color:white">Please download Chrome or Firefox if you want to experience it.</span><br><br>Then we\'ll let you in.'
+		alertMessage += '<span style="color:white">Please download Chrome or Firefox if you want to experience it.</span><br><br>Then we\'ll let you in.';
 		$('#modal').html(alertMessage);
 		$('#overlay').show();
 		$('#modal').show();
