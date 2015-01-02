@@ -10,6 +10,7 @@
 
     var chatOutput = document.getElementById('chat-output');
     var chatInput = document.getElementById('chat-input');
+    
     chatInput.onkeypress = function (e) {
         if (e.keyCode != 13) return;
         channel.send(this.value);

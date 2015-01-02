@@ -137,70 +137,30 @@ $('#next').click(function() {
     chatInput.onkeypress = function (e) {
     	if (e.keyCode != 13) return;
     	channel.send(this.value);
-    	chatOutput.innerHTML = 'Me: ' + this.value + '<hr />' + chatOutput.innerHTML;
+    	chatOutput.append('Me: ' + this.value + '<br />');
+    	chatOutput.scrollTop = 9999999;
     	this.value = '';
     };
 
     var channel = new DataChannel();
 
-
     channel.onopen = function (userid) {
     	chatInput.disabled = false;
-    	chatInput.value = 'Hi, ' + userid;
+    	// Tinder like messages here
+    	chatOutput.append('Say hi!');
     	chatInput.focus();
     };
 
     channel.onmessage = function (message, userid) {
-    	chatOutput.innerHTML = userid + ': ' + message + '<hr />' + chatOutput.innerHTML;
+    	chatOutput.append('Stranger: ' + message + '<br />');
+    	chatOutput.scrollTop = 9999999;
     };
 
     channel.onleave = function (userid) {
-    	chatOutput.innerHTML = userid + ' Left.<hr />' + chatOutput.innerHTML;
+    	//chatOutput.innerHTML = userid + ' Left.<hr />' + chatOutput.innerHTML;
     };
 
     channel.connect();
-
-   /* var chatOutput = $('#chat-output');
-    var chatInput = $('#chat-input');
-    chatInput.click(function () {
-    	alert("hey");
-    });
-
-    chatInput.onkeypress = function (e) {
-    	if (e.keyCode != 13) return;
-    	channel.send(this.value);
-    	chatOutput.innerHTML = 'Me: ' + this.value + '<hr />' + chatOutput.innerHTML;
-    	this.value = '';
-    };
-
-
-    channel.onopen = function (userid) {
-    	console.log("is open");
-    	chatInput.disabled = false;
-    	chatInput.focus();
-    };
-
-
-    var channel = new DataChannel("channel1");
-
-    channel.onopen = function () {
-    	alert('channel open!');
-    	
-    };
-
-
-    channel.onmessage = function (message, userid) {
-    	chatOutput.innerHTML = userid + ': ' + message + '<hr />' + chatOutput.innerHTML;
-    };
-
-    channel.onleave = function (userid) {
-    	chatOutput.innerHTML = userid + ' Left.<hr />' + chatOutput.innerHTML;
-    };
-
-    // search for existing data channels
-    channel.connect();
-    */
-
 });
 
 function addRequest(webrtc) {
