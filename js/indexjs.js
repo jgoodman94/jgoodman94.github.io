@@ -46,6 +46,7 @@ $(function() {
     webrtc.on('peerStreamAdded', function() {
     	window.clearTimeout(giveUp);
     	looking = false;
+    	channel.open("channel1");
     	//id = "undefined";
     	$('#disconnected').hide();
     	$('#doggy').hide();
@@ -124,16 +125,16 @@ $('#next').click(function() {
     //TEXT FUNCTIONS
 
     var channel = new DataChannel("channel1");
-    channel.open("channel1");
 
     channel.onopen = function () {
+    	alert('channel open!');
     	
     };
 
 
     $("#localVid").click (function () {
-		channel.open();
-		alert("penis");
+    	channel.open();
+    	alert("penis");
     });
 
     var chatOutput = $('#chat-output');
@@ -143,26 +144,26 @@ $('#next').click(function() {
     });
 
     chatInput.onkeypress = function (e) {
-        if (e.keyCode != 13) return;
-        channel.send(this.value);
-        chatOutput.innerHTML = 'Me: ' + this.value + '<hr />' + chatOutput.innerHTML;
-        this.value = '';
+    	if (e.keyCode != 13) return;
+    	channel.send(this.value);
+    	chatOutput.innerHTML = 'Me: ' + this.value + '<hr />' + chatOutput.innerHTML;
+    	this.value = '';
     };
 
-   
+
     channel.onopen = function (userid) {
     	console.log("is open");
-        chatInput.disabled = false;
-        chatInput.focus();
+    	chatInput.disabled = false;
+    	chatInput.focus();
     };
 
 
     channel.onmessage = function (message, userid) {
-        chatOutput.innerHTML = userid + ': ' + message + '<hr />' + chatOutput.innerHTML;
+    	chatOutput.innerHTML = userid + ': ' + message + '<hr />' + chatOutput.innerHTML;
     };
 
     channel.onleave = function (userid) {
-        chatOutput.innerHTML = userid + ' Left.<hr />' + chatOutput.innerHTML;
+    	chatOutput.innerHTML = userid + ' Left.<hr />' + chatOutput.innerHTML;
     };
 
     // search for existing data channels
