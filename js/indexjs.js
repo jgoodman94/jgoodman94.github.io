@@ -1,5 +1,5 @@
 $(function() {
-	alert('it has been changed');
+	//alert('it has been changed');
 	vchatCheck();
     //set chat-output size to rest of screen
     window.addEventListener("resize", calcOutputHeight);
@@ -72,6 +72,8 @@ $(function() {
         $('#doggy').hide();
         $('#next').show();
         $('.spinner').hide();
+        $chatOutput.append('<b>Say hi!</b><br>');
+        $chatInput.focus();
     });
 
     // allow 'next' option when partner leaves
@@ -79,12 +81,12 @@ $(function() {
         // leave rooms when ur friend leaves
         webrtc.leaveRoom();
        // channel.leave();
-        $chatOutput.html('');
+       $chatOutput.html('');
 
-        $('#disconnected').show();
-        $('#doggy').show();
-        $('#next').show();
-    });
+       $('#disconnected').show();
+       $('#doggy').show();
+       $('#next').show();
+   });
 
     /* deal with color changes
     webrtc.on('sepia', function(data) {
@@ -110,12 +112,12 @@ $('#next').click(function() {
         // leave rooms when u click next
         webrtc.leaveRoom();
        // channel.leave();
-        $chatOutput.html('');
+       $chatOutput.html('');
 
-        looking = true;
-        giveUpIn(10000);
-        $('#disconnected').hide();
-        $('#doggy').hide();
+       looking = true;
+       giveUpIn(10000);
+       $('#disconnected').hide();
+       $('#doggy').hide();
         // look for some frands, join if there
         $('#next').hide();
         // reset text in disconnected
@@ -167,8 +169,8 @@ function addRequest(webrtc) {
             channel.onopen = function() {
             	$chatInput.disabled = false;
                 // Tinder like prompting messages here
-                $chatOutput.append('<b>Say hi!</b><br>');
-                $chatInput.focus();
+               // $chatOutput.append('<b>Say hi!</b><br>');
+               // $chatInput.focus();
             };
 
             channel.onmessage = function(message) {
@@ -212,8 +214,8 @@ function searchRequest(webrtc) {
                 channel.onopen = function() {
                 	$chatInput.disabled = false;
                     // Tinder like prompting messages here
-                    $chatOutput.append('<b>Say hi!</b><br>');
-                    $chatInput.focus();
+                  //  $chatOutput.append('<b>Say hi!</b><br>');
+                  //  $chatInput.focus();
                 };
 
                 channel.onmessage = function(message) {
