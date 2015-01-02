@@ -29,7 +29,7 @@ $(function() {
     	giveUp = window.setTimeout(function() {
     		looking = false;
     		$('.spinner').hide();
-    		$('#disconnected').html('Everyone\'s busy in their chats, or very few people are online at the moment.<br>Try again?');
+    		$('#disconnected').html('Everyone\'s busy in their chats,<b>or very few people are online at the moment.');
     		$('#disconnected').show();
     		$('#doggy').show();
     		$('#next').show();
@@ -44,6 +44,7 @@ $(function() {
 
     // get rid of spinner when friend comes on
     webrtc.on('peerStreamAdded', function() {
+    	window.clearTimeout(giveUp);
     	looking = false;
     	//id = "undefined";
     	$('#disconnected').hide();
