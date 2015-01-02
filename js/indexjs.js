@@ -36,6 +36,7 @@ $(function() {
     $('#start').click(function() {
     	looking = true;
     	giveUpIn(10000);
+    	channel = new DataChannel();
     	$('#childTop').html('');
     	$('#childFoot').html('');    	
         // look for some frands, join if there
@@ -88,6 +89,9 @@ $('#next').click(function() {
 	// leave rooms when u click next
 	webrtc.leaveRoom();
 	channel.leave();
+
+	channel = new DataChannel();
+
 
 	looking = true;
 	giveUpIn(10000);
@@ -169,7 +173,6 @@ function addRequest(webrtc) {
 			console.log("Request added under id: " + id);
 			//create webrtc room and text chat room
 			webrtc.joinRoom(id);
-			channel = new DataChannel();
 			channel.open(id);
 
 		},
@@ -195,7 +198,6 @@ function searchRequest(webrtc) {
 
 				// join webrtc and text chat rooms
 				webrtc.joinRoom(request.id);
-				channel = new DataChannel();
 				channel.connect(request.id);
 
 				destroyPartner(request.id);
