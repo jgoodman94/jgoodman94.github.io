@@ -66,7 +66,7 @@ $(function() {
     	console.log('sepia sent?');
     })*/
 
-
+/*
 $('#localVid').click(function() {
 	webrtc.sendToAll('chat', {data: '!!!some text!!!'});
 	peer.send('chat', {data: '!!!!!!!!!!! sent via A'});
@@ -79,7 +79,7 @@ webrtc.on('message', function(message){
 		console.log(message); 
 	}
 });
-
+*/
 
 
 $('#next').click(function() {
@@ -115,7 +115,7 @@ $('#next').click(function() {
 			}
 
 			//change filter on click
-			document.getElementById("localVid").addEventListener('click', changeFilter, false);
+			//document.getElementById("localVid").addEventListener('click', changeFilter, false);
 
 
 			/*send filters to other person
