@@ -1,5 +1,5 @@
 $(function() {
-	//alert('it has been changed');
+	alert('it has been changed');
 	vchatCheck();
     //set chat-output size to rest of screen
     window.addEventListener("resize", calcOutputHeight);
@@ -92,6 +92,7 @@ $(function() {
        $('#doggy').show();
        $('#bigShuffle').show();
        $('#smallShuffle').show();
+       $('#smallShuffle').css('color','4099FF');
    });
 
     /* deal with color changes
