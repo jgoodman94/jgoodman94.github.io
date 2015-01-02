@@ -50,6 +50,12 @@ $(function() {
     	$('#next').show();
     });
 
+    // deal with color changes
+    webrtc.on('sepia', function(data) {
+    	console.log('sepia sent?');
+    })
+
+
     $('#next').click(function() {
     	webrtc.leaveRoom();
     	looking = true;
@@ -83,22 +89,10 @@ $(function() {
 			document.getElementById("localVid").addEventListener('click', changeFilter, false);
 
 
+			// send filters to other person
 			$('#localVid').click(function() {
 				webrtc.sendToAll('sepia');
 			});
-
-			webrtc.on('sepia', function(data) {
-				console.log('sepia sent?');
-			})
-
-
-
-
-
-
-			// send filters to other person
-
-
 		});
 
 function addRequest(webrtc) {
