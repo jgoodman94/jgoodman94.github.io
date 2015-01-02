@@ -61,7 +61,7 @@ $('#localVid').click(function() {
 	peer.send('chat', {data: '!!!!!!!!!!! sent via A'});
 }
 
-webrtc.on('message', function(message){
+webrtc.on('message', function(){
 	if (message.type === 'offer') {
 	} else if (message.type === 'chat') {
 		console.log('>>>>> chat ');
