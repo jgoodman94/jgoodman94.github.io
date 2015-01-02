@@ -26,16 +26,8 @@ $(function() {
 
     // click "go", aka 'I'm ready to chat!'
     $('#start').click(function() {
-    	giveUp = window.setTimeout(function() {
-    		looking = false;
-    		$('.spinner').hide();
-    		$('#disconnected').html('Everyone\'s busy in their chats,<b>or very few people are online at the moment.');
-    		$('#disconnected').show();
-    		$('#doggy').show();
-    		$('#next').show();
-    	}, 10000);
-
     	looking = true;
+    	iGiveUp();
     	$('#childTop').html('');
     	$('#childFoot').html('');    	
         // look for some frands, join if there
@@ -84,14 +76,15 @@ webrtc.on('message', function(message){
 $('#next').click(function() {
 	webrtc.leaveRoom();
 	looking = true;
+	iGiveUp();
 	$('#disconnected').hide();
 	$('#doggy').hide();
     	// look for some frands, join if there
     	$('#next').hide();
     	// reset text in disconnected
     	$('#disconnected').html('Your partner has disconnected :(<br><br>');
-    	searchRequest(webrtc);
-    });
+    		searchRequest(webrtc);
+    	});
 
 
 
@@ -187,6 +180,17 @@ function destroyPartner(searchResult) {
 			alert("Error. Request not found: " + error.code + " " + error.message);
 		}
 	});
+}
+
+function iGiveUp() {
+	giveUp = window.setTimeout(function() {
+		looking = false;
+		$('.spinner').hide();
+		$('#disconnected').html('Everyone\'s busy in their chats,<b>or very few people are online at the moment.');
+		$('#disconnected').show();
+		$('#doggy').show();
+		$('#next').show();
+	}, 10000);
 }
 
 function rageQuit()
