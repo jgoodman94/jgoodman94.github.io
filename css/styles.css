@@ -1,6 +1,9 @@
-html, body, * {
+* {
 	font-family: 'Raleway', sans-serif;
 
+}
+html, body {
+	background:#4099FF;
 }
 #overlay {
 	display: none;
@@ -61,6 +64,7 @@ html, body, * {
 #remoteVid {
 	text-align: center;
 	font-size:2em;
+	background:white;
 }
 
 
@@ -73,7 +77,7 @@ html, body, * {
 #chat-output {
 	margin-bottom: 0px;
 	height: auto;
-	background: #4099FF;
+	background: white;
 	color: white;
 
 }
