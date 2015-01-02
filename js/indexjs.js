@@ -1,5 +1,5 @@
 $(function() {
-	alert('it has been changed');
+	//alert('it has been changed');
 	vchatCheck();
     //set chat-output size to rest of screen
     window.addEventListener("resize", calcOutputHeight);
@@ -17,8 +17,11 @@ $(function() {
     $chatOutput = $('#chat-output');
     $chatInput = $('#chat-input');
 
-    // for automatic scroll
+
+    // for automatic scroll and disabling stuff
     chatOutput = document.getElementById('chat-output');
+    chatInput = document.getElementById('chat-input');
+
 
     $chatInput.keyup(function(e) {
     	if (e.keyCode != 13) return;
@@ -68,7 +71,7 @@ $(function() {
     	window.clearTimeout(giveUp);
     	looking = false;
         //id = "undefined";
-        $chatInput.prop('disabled', 'false');
+        chatInput.disabled = false;
         $('#disconnected').hide();
         $('#doggy').hide();
         $('#next').show();
@@ -83,7 +86,7 @@ $(function() {
         webrtc.leaveRoom();
        // channel.leave();
        $chatOutput.html('');
-       $chatInput.prop('disabled', 'true');
+       chatInput.disabled = true;
        $('#disconnected').show();
        $('#doggy').show();
        $('#next').show();
