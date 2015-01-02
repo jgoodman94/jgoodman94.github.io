@@ -97,7 +97,11 @@ html, body, * {
 	padding-bottom:1em;
 	color:white;
 }
+#spacer {
+	height: 50px;
+}
 #next {
+	display: none;
 	width: 15%;
 	margin: 0;
 	margin-top: 0;
