@@ -224,15 +224,15 @@ function rageQuit()
 
 // check if browser will support vchat
 function vchatCheck() {
-	var alertMessage = '';
-	console.log('browser version: ' + bowser.version);
+	var alertMessage = 'This is a pretty cool site.<br>';
 
 	if (bowser.name == 'Chrome')
 	{
 		if (bowser.version < 23)
 		{
-			alertMessage = 'Please update Chrome if you want to video chat.';
-			$('#modal').text(alertMessage);
+			alertMessage += '<span style=color:white>Please update Chrome if you want to experience it.</span><br><br>Then we\'ll let you in.';
+			$('#modal').html(alertMessage);
+			$('#overlay').show();
 			$('#modal').show();
 		}
 	}
@@ -241,8 +241,9 @@ function vchatCheck() {
 		if (bowser.version < 22)
 		{
 
-			alertMessage = 'Please update Firefox if you want to videochat.';
-			$('#modal').text(alertMessage);
+			alertMessage += '<span style="color:white">Please update Firefox if you want to experience it.</span><br><br>Then we\'ll let you in.';
+			$('#modal').html(alertMessage);
+			$('#overlay').show();
 			$('#modal').show();
 		}
 	}
@@ -250,15 +251,17 @@ function vchatCheck() {
 	{
 		if (bowser.version < 18)
 		{
-			alertMessage = 'Please update Opera if you want to videochat.';
-			$('#modal').text(alertMessage);
+			alertMessage += '<span style="color:white">Please update Opera if you want to experience it.</span><br><br>Then we\'ll let you in.';
+			$('#modal').html(alertMessage);
+			$('#overlay').show();
 			$('#modal').show();
 		}
 	}
 	else
 	{
-		alertMessage = 'Download Chrome or Firefox if you want to videochat.'
-		$('#modal').text(alertMessage);
+		alertMessage += '<span style="color:white">Please download Chrome or Firefox if you want to experience it.</span><br><br>Then we\'ll let you in.'
+		$('#modal').html(alertMessage);
+		$('#overlay').show();
 		$('#modal').show();
 	}
 }
