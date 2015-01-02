@@ -1,5 +1,5 @@
 $(function() {
-	alert('it has been changed');
+	//alert('it has been changed');
 
 	vchatCheck();
     //set chat-output size to rest of screen
@@ -21,7 +21,8 @@ $(function() {
 
     $('#chat-output').click(function() {
     	console.log('should have changed color...');
-    	$('#smallShuffle').css('color','4099FF');
+    	document.getElementById.css('color','#4099FF');
+
     })
 
     // for automatic scroll and disabling stuff
