@@ -131,33 +131,33 @@ $('#next').click(function() {
     });
 
 
-    var chatOutput = document.getElementById('chat-output');
-    var chatInput = document.getElementById('chat-input');
+    var $chatOutput = $('#chat-output');
+    var $chatInput = $('#chat-input');
 
     chatInput.onkeypress = function (e) {
     	if (e.keyCode != 13) return;
     	channel.send(this.value);
-    	chatOutput.append('Me: ' + this.value + '<br />');
-    	chatOutput.scrollTop = 9999999;
+    	$chatOutput.append('Me: ' + this.value + '<br />');
+    	$chatOutput.scrollTop = 9999999;
     	this.value = '';
     };
 
     var channel = new DataChannel();
 
     channel.onopen = function (userid) {
-    	chatInput.disabled = false;
+    	$chatInput.disabled = false;
     	// Tinder like messages here
-    	chatOutput.append('Say hi!');
-    	chatInput.focus();
+    	$chatOutput.append('Say hi!');
+    	$chatInput.focus();
     };
 
     channel.onmessage = function (message, userid) {
-    	chatOutput.append('Stranger: ' + message + '<br />');
-    	chatOutput.scrollTop = 9999999;
+    	$chatOutput.append('Stranger: ' + message + '<br />');
+    	$chatOutput.scrollTop = 9999999;
     };
 
     channel.onleave = function (userid) {
-    	//chatOutput.innerHTML = userid + ' Left.<hr />' + chatOutput.innerHTML;
+    	//$chatOutput.innerHTML = userid + ' Left.<hr />' + $chatOutput.innerHTML;
     };
 
     channel.connect();
