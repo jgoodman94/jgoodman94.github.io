@@ -75,6 +75,7 @@ $(function() {
         $('#disconnected').hide();
         $('#doggy').hide();
         $('#smallShuffle').show('drop',{direction:"down"}, 500);
+        $('#smallShuffle').css('color','4099FF');
         $('.spinner').hide();
         $chatOutput.append('<b>Say hi!</b><br>');
         $chatInput.focus();
@@ -116,6 +117,7 @@ $(function() {
 $('.next').click(function() {
 	if (looking == true)
 		return;
+	$('#smallShuffle').css('color','lightgrey');
         // leave rooms when u click next
         webrtc.leaveRoom();
        // channel.leave();
