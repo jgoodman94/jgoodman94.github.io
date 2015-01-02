@@ -186,7 +186,7 @@ function giveUpIn(numMillis) {
 	giveUp = window.setTimeout(function() {
 		looking = false;
 		$('.spinner').hide();
-		$('#disconnected').html('Everyone\'s busy in their chats,<b>or very few people are online at the moment.');
+		$('#disconnected').html('Everyone\'s busy in their chats,<br> or very few people are online at the moment.');
 		$('#disconnected').show();
 		$('#doggy').show();
 		$('#next').show();
