@@ -1,5 +1,5 @@
 $(function() {
-	//alert('it has been changed');
+	alert('it has been changed');
 	vchatCheck();
     //set chat-output size to rest of screen
     window.addEventListener("resize", calcOutputHeight);
@@ -78,7 +78,7 @@ $(function() {
     webrtc.on('peerStreamRemoved', function() {
         // leave rooms when ur friend leaves
         webrtc.leaveRoom();
-        channel.leave();
+       // channel.leave();
         $chatOutput.html('');
 
         $('#disconnected').show();
@@ -109,7 +109,7 @@ $(function() {
 $('#next').click(function() {
         // leave rooms when u click next
         webrtc.leaveRoom();
-        channel.leave();
+       // channel.leave();
         $chatOutput.html('');
 
         looking = true;
