@@ -1,5 +1,5 @@
 $(function() {
-	//alert('it has been changed');
+	alert('it has been changed');
 	vchatCheck();
     //set chat-output size to rest of screen
     window.addEventListener("resize", calcOutputHeight);
@@ -109,6 +109,7 @@ $(function() {
 */
 
 $('#next').click(function() {
+	$chatInput.disabled = true;
         // leave rooms when u click next
         webrtc.leaveRoom();
        // channel.leave();
@@ -171,15 +172,15 @@ function addRequest(webrtc) {
                 // Tinder like prompting messages here
                // $chatOutput.append('<b>Say hi!</b><br>');
                // $chatInput.focus();
-            };
+           };
 
-            channel.onmessage = function(message) {
-            	$chatOutput.append('<span style="color:#fac03b"><b>Stranger:</b></span> ' + message + '<br />');
-            	chatOutput.scrollTop = chatOutput.scrollHeight;
-            };
+           channel.onmessage = function(message) {
+           	$chatOutput.append('<span style="color:#fac03b"><b>Stranger:</b></span> ' + message + '<br />');
+           	chatOutput.scrollTop = chatOutput.scrollHeight;
+           };
 
-            channel.onleave = function() {
-            	$chatInput.disabled = true;
+           channel.onleave = function() {
+           	$chatInput.disabled = true;
                 //$chatOutput.innerHTML = userid + ' Left.<hr />' + $chatOutput.innerHTML;
             };
 
@@ -216,15 +217,15 @@ function searchRequest(webrtc) {
                     // Tinder like prompting messages here
                   //  $chatOutput.append('<b>Say hi!</b><br>');
                   //  $chatInput.focus();
-                };
+              };
 
-                channel.onmessage = function(message) {
-                	$chatOutput.append('<span style="color:#fac03b"><b>Stranger:</b></span> ' + message + '<br />');
-                	chatOutput.scrollTop = chatOutput.scrollHeight;
-                };
+              channel.onmessage = function(message) {
+              	$chatOutput.append('<span style="color:#fac03b"><b>Stranger:</b></span> ' + message + '<br />');
+              	chatOutput.scrollTop = chatOutput.scrollHeight;
+              };
 
-                channel.onleave = function(userid) {
-                	$chatInput.disabled = true;
+              channel.onleave = function(userid) {
+              	$chatInput.disabled = true;
                     //$chatOutput.innerHTML = userid + ' Left.<hr />' + $chatOutput.innerHTML;
                 };
 
