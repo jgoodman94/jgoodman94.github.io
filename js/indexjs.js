@@ -84,7 +84,7 @@ $(function() {
 
 
 			$('#localVid').click(function() {
-				webrtc.emit('sepia');
+				peer.send('sepia');
 			});
 
 			webrtc.on('sepia', function() {
