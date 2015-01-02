@@ -2,7 +2,7 @@ $(function() {
 	$('#header').click(function() {
 		$('#smallShuffle').show();
 	})
-	//alert('it has been changed');
+	alert('it has been changed');
 	vchatCheck();
     //set chat-output size to rest of screen
     window.addEventListener("resize", calcOutputHeight);
@@ -92,7 +92,8 @@ $(function() {
        chatInput.disabled = true;
        $('#disconnected').show();
        $('#doggy').show();
-       $('.next').show();
+       $('#bigShuffle').show();
+       $('#smallShuffle').show();
    });
 
     /* deal with color changes
