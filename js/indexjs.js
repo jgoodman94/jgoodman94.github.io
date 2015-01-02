@@ -2,7 +2,7 @@ $(function() {
 	$('#header').click(function() {
 		$('#smallShuffle').show();
 	})
-	//alert('it has been changed');
+	alert('it has been changed');
 	vchatCheck();
     //set chat-output size to rest of screen
     window.addEventListener("resize", calcOutputHeight);
@@ -117,6 +117,8 @@ $(function() {
 */
 
 $('.next').click(function() {
+	if (looking == true)
+		return;
         // leave rooms when u click next
         webrtc.leaveRoom();
        // channel.leave();
@@ -127,7 +129,6 @@ $('.next').click(function() {
        $('#disconnected').hide();
        $('#doggy').hide();
         // look for some frands, join if there
-        $('#smallShuffle').hide();
         $('#bigShuffle').hide();
         // reset text in disconnected
         $('#disconnected').html('Your partner has disconnected :(<br><br>');
