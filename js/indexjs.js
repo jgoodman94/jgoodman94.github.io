@@ -27,7 +27,7 @@ $(function() {
     // click "go", aka 'I'm ready to chat!'
     $('#start').click(function() {
     	looking = true;
-    	iGiveUp();
+    	giveUpIn(10000);
     	$('#childTop').html('');
     	$('#childFoot').html('');    	
         // look for some frands, join if there
@@ -76,7 +76,7 @@ webrtc.on('message', function(message){
 $('#next').click(function() {
 	webrtc.leaveRoom();
 	looking = true;
-	iGiveUp();
+	giveUpIn(10000);
 	$('#disconnected').hide();
 	$('#doggy').hide();
     	// look for some frands, join if there
@@ -182,7 +182,7 @@ function destroyPartner(searchResult) {
 	});
 }
 
-function iGiveUp() {
+function giveUpIn(numMillis) {
 	giveUp = window.setTimeout(function() {
 		looking = false;
 		$('.spinner').hide();
@@ -190,7 +190,7 @@ function iGiveUp() {
 		$('#disconnected').show();
 		$('#doggy').show();
 		$('#next').show();
-	}, 10000);
+	}, numMillis);
 }
 
 function rageQuit()
