@@ -1,7 +1,5 @@
 $(function() {
-<<<<<<< HEAD
 	vchatCheck();
-=======
 	//set chat-output size to rest of screen
 	window.addEventListener("resize", calcOutputHeight);
 	function calcOutputHeight () {
@@ -12,7 +10,6 @@ $(function() {
 		$("#chat-output-row").height(leftover);
 	};
 	
->>>>>>> text-chat
 	// initialize with API key
 	Parse.initialize("cLQ1TweezsDIp2ysSvYvXETLozVZIMdRfExqEg7u", "fgapofWIKhtAQfuToqAbRRlNHCAfBbFR6pusDzBk");
 
@@ -105,7 +102,6 @@ $('#next').click(function() {
 			var index = 0;
 			var filters = ['grayscale', 'sepia', 'blur', 'contrast', 'hue-rotate', 'saturate', 'invert', ''];
 
-<<<<<<< HEAD
 			//change the current effect
 			function changeFilter(e) {
 				var la = e.target;
@@ -125,7 +121,6 @@ $('#next').click(function() {
 			$('#localVid').click(function(peer) {
 				peer.send('sepia');
 			});*/
-=======
     //TEXT FUNCTIONS
 
     var channel = new DataChannel("channel1");
@@ -174,7 +169,6 @@ $('#next').click(function() {
     channel.connect();
 
 
->>>>>>> text-chat
 });
 
 function addRequest(webrtc) {
@@ -281,10 +275,7 @@ function rageQuit()
 
     	return;
     };
-
-
-
-<<<<<<< HEAD
+    
 // check if browser will support vchat
 function vchatCheck() {
 	var alertMessage = 'This is a pretty cool site.<br>';
@@ -328,7 +319,3 @@ function vchatCheck() {
 		$('#modal').show();
 	}
 }
-=======
-
->>>>>>> text-chat
-
