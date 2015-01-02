@@ -84,10 +84,10 @@ $(function() {
 
 
 			$('#localVid').click(function() {
-				webrtc.sendDirectlyToAll('sepia');
+				webrtc.sendToAll('sepia', {foo:bar});
 			});
 
-			webrtc.on('sepia', function() {
+			webrtc.on('sepia', function(data) {
 				console.log('sepia sent?');
 			})
 
