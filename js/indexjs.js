@@ -46,7 +46,6 @@ $(function() {
     webrtc.on('peerStreamAdded', function() {
     	window.clearTimeout(giveUp);
     	looking = false;
-    	channel.open("channel1");
     	//id = "undefined";
     	$('#disconnected').hide();
     	$('#doggy').hide();
@@ -56,6 +55,10 @@ $(function() {
 
     // allow 'next' option when partner leaves
     webrtc.on('peerStreamRemoved', function() {
+    	// leave rooms when ur friend leaves
+    	webrtc.leaveRoom();
+    	channel.leave();
+
     	$('#disconnected').show();
     	$('#doggy').show();
     	$('#next').show();
@@ -81,9 +84,11 @@ webrtc.on('message', function(message){
 });
 */
 
-
 $('#next').click(function() {
+	// leave rooms when u click next
 	webrtc.leaveRoom();
+	channel.leave();
+
 	looking = true;
 	giveUpIn(10000);
 	$('#disconnected').hide();
@@ -94,9 +99,6 @@ $('#next').click(function() {
     	$('#disconnected').html('Your partner has disconnected :(<br><br>');
     		searchRequest(webrtc);
     	});
-
-
-
 
 
 			//add effects to video
@@ -157,8 +159,6 @@ $('#next').click(function() {
     channel.onleave = function (userid) {
     	//$chatOutput.innerHTML = userid + ' Left.<hr />' + $chatOutput.innerHTML;
     };
-
-    channel.connect();
 });
 
 function addRequest(webrtc) {
@@ -168,7 +168,10 @@ function addRequest(webrtc) {
 		success: function(request) {
 			id = request.id;
 			console.log("Request added under id: " + id);
+			//create webrtc room and text chat room
 			webrtc.joinRoom(id);
+			channel.open(id);
+
 		},
 		error: function() {
 			console.log("something's fucked up");
@@ -186,9 +189,14 @@ function searchRequest(webrtc) {
 			// entry is in database
 			// join room of other person, then destroy that persons
 			if (request != undefined) {
+				textID = request.id;
 				console.log("matched to: " + request.id);
-				console.log('never tried...');
+
+
+				// join webrtc and text chat rooms
 				webrtc.joinRoom(request.id);
+				channel.connect(request.id);
+
 				destroyPartner(request.id);
 				return;
 			}
