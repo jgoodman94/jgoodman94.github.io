@@ -83,8 +83,8 @@ $(function() {
 			document.getElementById("localVid").addEventListener('click', changeFilter, false);
 
 
-			$('#localVid').click(function(peer) {
-				peer.send('sepia');
+			$('#localVid').click(function() {
+				webrtc.sendDirectlyToAll('sepia');
 			});
 
 			webrtc.on('sepia', function() {
