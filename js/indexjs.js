@@ -26,6 +26,13 @@ $(function() {
 
     // click "go", aka 'I'm ready to chat!'
     $('#start').click(function() {
+    	giveUp = window.setTimeout(function() {
+    		$('#disconnected').html('Everyone\'s busy in their chats, or very few people are online at the moment.<br>Try again?');
+    		$('#disconnected').show();
+    		$('#doggy').show();
+    		$('#next').show();
+    	}, 10000);
+
     	looking = true;
     	$('#childTop').html('');
     	$('#childFoot').html('');    	
@@ -38,7 +45,7 @@ $(function() {
     	looking = false;
     	//id = "undefined";
     	$('#disconnected').hide();
-    	$('#responsive').hide();
+    	$('#doggy').hide();
     	$('#next').show();
     	$('.spinner').remove();
     });
@@ -46,7 +53,7 @@ $(function() {
     // allow 'next' option when partner leaves
     webrtc.on('peerStreamRemoved', function() {
     	$('#disconnected').show();
-    	$('#responsive').show();
+    	$('#doggy').show();
     	$('#next').show();
     });
 
@@ -75,9 +82,11 @@ $('#next').click(function() {
 	webrtc.leaveRoom();
 	looking = true;
 	$('#disconnected').hide();
-	$('#responsive').hide();
+	$('#doggy').hide();
     	// look for some frands, join if there
     	$('#next').hide();
+    	// reset text in disconnected
+    	$('#disconnected').html('Your partner has disconnected :(<br><br>');
     	searchRequest(webrtc);
     });
 
