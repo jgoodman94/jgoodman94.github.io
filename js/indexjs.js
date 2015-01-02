@@ -2,7 +2,7 @@ $(function() {
 	$('#header').click(function() {
 		$('#smallShuffle').show();
 	})
-	alert('it has been changed');
+	//alert('it has been changed');
 	vchatCheck();
     //set chat-output size to rest of screen
     window.addEventListener("resize", calcOutputHeight);
@@ -284,7 +284,8 @@ function giveUpIn(numMillis) {
 		$('#disconnected').html('Everyone\'s busy in their chats,<br> or very few people are online at the moment.');
 		$('#disconnected').show();
 		$('#doggy').show();
-		$('.next').show();
+		$('#bigShuffle').show();
+		$('#smallShuffle').show();
 		destroyPartner(id);
 	}, numMillis);
 }
