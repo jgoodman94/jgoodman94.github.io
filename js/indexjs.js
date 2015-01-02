@@ -1,5 +1,5 @@
 $(function() {
-	alert('it has been changed');
+	//alert('it has been changed');
 	vchatCheck();
     //set chat-output size to rest of screen
     window.addEventListener("resize", calcOutputHeight);
@@ -30,7 +30,6 @@ $(function() {
     	chatOutput.scrollTop = chatOutput.scrollHeight;
     	this.value = '';
     });
-
 
 
     // initialize with API key
@@ -76,9 +75,14 @@ $(function() {
         $('#smallShuffle').show();
         $('#smallShuffle').css('color','#4099FF');
         $('.spinner').hide();
-        $chatOutput.append('<span style="color:red"><b>Say hi!</b><br></span>');
-        chatInput.disabled = false;
-        $chatInput.focus();
+        
+        //briefly delay text chat to make sure connection is open
+        setTimeout(function() {
+        	$chatOutput.append('<span style="color:red"><b>Say hi!</b><br></span>');
+        	chatInput.disabled = false;
+        	$chatInput.focus();
+        }, 1000);
+        
     });
 
     // allow 'next' option when partner leaves
@@ -188,10 +192,10 @@ function addRequest(webrtc) {
            	chatOutput.scrollTop = chatOutput.scrollHeight;
            };
 
-           channel.ondatachannel = function() {
+          /* channel.ondatachannel = function() {
            	alert('new person here!');
            }
-
+           */
            channel.onleave = function() {
            	channel = new DataChannel();
            	//$chatInput.disabled = true;
