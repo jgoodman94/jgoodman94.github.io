@@ -1,9 +1,6 @@
-* {
+html, body, * {
 	font-family: 'Raleway', sans-serif;
 
-}
-html, body {
-	background:#4099FF;
 }
 #overlay {
 	display: none;
@@ -57,6 +54,7 @@ html, body {
 #localVid {
 	font-size:2em;
 	background:black;
+	border-bottom: solid #4099FF 1px;
 	/*un mirror video */
 	transform: scale(-1, 1);            /*For Firefox (& IE) */
 	-webkit-transform: scale(-1, 1);     /*for Chrome & Opera (& Safari) */
@@ -64,7 +62,7 @@ html, body {
 #remoteVid {
 	text-align: center;
 	font-size:2em;
-	background:white;
+	border-bottom: solid #4099FF 1px;
 }
 
 
@@ -78,8 +76,7 @@ html, body {
 	margin-bottom: 0px;
 	height: auto;
 	background: white;
-	color: white;
-
+	color: black;
 }
 
 #start {
