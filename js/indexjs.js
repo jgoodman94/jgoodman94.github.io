@@ -1,11 +1,16 @@
-
-
 $(function() {
+	//set chat-output size to rest of screen
+	window.addEventListener("resize", calcOutputHeight);
+	function calcOutputHeight () {
+		var h = $( window ).height();
+		var leftover = h - $('#header').height() - $('#localVid').height() - $('#chat-input-row').height();
+		console.log(leftover);
+		$("#chat-output").height(leftover);
+		$("#chat-output-row").height(leftover);
+	};
 	
 	// initialize with API key
 	Parse.initialize("cLQ1TweezsDIp2ysSvYvXETLozVZIMdRfExqEg7u", "fgapofWIKhtAQfuToqAbRRlNHCAfBbFR6pusDzBk");
-
-
 
 	//id = "undefined";
 	looking = false;
@@ -68,6 +73,54 @@ $(function() {
     	searchRequest(webrtc);
     });
 
+
+
+    //TEXT FUNCTIONS
+
+    var channel = new DataChannel("channel1");
+    channel.open("channel1");
+
+    channel.onopen() {
+    	
+    }
+
+
+    $("#localVid").click (function () {
+		channel.open();
+		alert("penis");
+    });
+
+    var chatOutput = $('#chat-output');
+    var chatInput = $('#chat-input');
+    chatInput.click(function () {
+    	alert("hey");
+    });
+
+    chatInput.onkeypress = function (e) {
+        if (e.keyCode != 13) return;
+        channel.send(this.value);
+        chatOutput.innerHTML = 'Me: ' + this.value + '<hr />' + chatOutput.innerHTML;
+        this.value = '';
+    };
+
+   
+    channel.onopen = function (userid) {
+    	console.log("is open");
+        chatInput.disabled = false;
+        chatInput.focus();
+    };
+
+
+    channel.onmessage = function (message, userid) {
+        chatOutput.innerHTML = userid + ': ' + message + '<hr />' + chatOutput.innerHTML;
+    };
+
+    channel.onleave = function (userid) {
+        chatOutput.innerHTML = userid + ' Left.<hr />' + chatOutput.innerHTML;
+    };
+
+    // search for existing data channels
+    channel.connect();
 
 
 });
@@ -165,5 +218,8 @@ function rageQuit()
 
     	return;
     };
+
+
+
 
 
