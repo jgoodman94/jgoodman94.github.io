@@ -10,6 +10,7 @@ $(function() {
 		$("#chat-output").height(leftover);
 		$("#chat-output-row").height(leftover);
 	};
+	var channel = new DataChannel();
 	
 	// initialize with API key
 	Parse.initialize("cLQ1TweezsDIp2ysSvYvXETLozVZIMdRfExqEg7u", "fgapofWIKhtAQfuToqAbRRlNHCAfBbFR6pusDzBk");
@@ -91,7 +92,6 @@ $('#next').click(function() {
 	webrtc.leaveRoom();
 	channel.leave();
 
-	var channel = new DataChannel();
 
 
 	looking = true;
@@ -255,8 +255,8 @@ function rageQuit()
 
 
 
-    var $chatOutput = $('#chat-output');
-    var $chatInput = $('#chat-input');
+        var $chatOutput = $('#chat-output');
+        var $chatInput = $('#chat-input');
 
     // for automatic scroll
     var chatOutput = document.getElementById('chat-output');
