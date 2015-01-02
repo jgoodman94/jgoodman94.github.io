@@ -1,5 +1,6 @@
 $(function() {
-	alert('it has been changed');
+	//alert('it has been changed');
+
 	vchatCheck();
     //set chat-output size to rest of screen
     window.addEventListener("resize", calcOutputHeight);
@@ -17,6 +18,10 @@ $(function() {
     $chatOutput = $('#chat-output');
     $chatInput = $('#chat-input');
 
+
+    $('#chat-output').click(function() {
+    	$('#smallShuffle').css('color','4099FF');
+    })
 
     // for automatic scroll and disabling stuff
     chatOutput = document.getElementById('chat-output');
