@@ -1,5 +1,5 @@
 $(function() {
-	//alert('it has been changed');
+	alert('it has been changed');
 	vchatCheck();
 	//set chat-output size to rest of screen
 	window.addEventListener("resize", calcOutputHeight);
@@ -129,39 +129,7 @@ $('#next').click(function() {
 			$('#localVid').click(function(peer) {
 				peer.send('sepia');
 			});*/
-    //TEXT FUNCTIONS
 
-
-
-    var $chatOutput = $('#chat-output');
-    var $chatInput = $('#chat-input');
-
-    // for automatic scroll
-    var chatOutput = document.getElementById('chat-output');
-
-    $chatInput.keyup(function(e) {
-    	if (e.keyCode != 13) return;
-    	channel.send(this.value);
-    	$chatOutput.append('<span style="color:#4099FF"><b>Me</b>:</span> ' + this.value + '<br />');
-    	chatOutput.scrollTop = chatOutput.scrollHeight;
-    	this.value = '';
-    });
-
-    channel.onopen = function (userid) {
-    	$chatInput.disabled = false;
-    	// Tinder like prompting messages here
-    	$chatOutput.append('Say hi!<br>');
-    	$chatInput.focus();
-    };
-
-    channel.onmessage = function (message, userid) {
-    	$chatOutput.append('<span style="color:#fac03b"><b>Stranger:</b></span> ' + message + '<br />');
-    	chatOutput.scrollTop = chatOutput.scrollHeight;
-    };
-
-    channel.onleave = function (userid) {
-    	//$chatOutput.innerHTML = userid + ' Left.<hr />' + $chatOutput.innerHTML;
-    };
 });
 
 // add request for chat to database
@@ -275,6 +243,50 @@ function rageQuit()
 
     	return;
     };
+
+
+
+
+
+
+
+
+        //TEXT FUNCTIONS
+
+
+
+    var $chatOutput = $('#chat-output');
+    var $chatInput = $('#chat-input');
+
+    // for automatic scroll
+    var chatOutput = document.getElementById('chat-output');
+
+    $chatInput.keyup(function(e) {
+    	if (e.keyCode != 13) return;
+    	channel.send(this.value);
+    	$chatOutput.append('<span style="color:#4099FF"><b>Me</b>:</span> ' + this.value + '<br />');
+    	chatOutput.scrollTop = chatOutput.scrollHeight;
+    	this.value = '';
+    });
+
+    channel.onopen = function (userid) {
+    	$chatInput.disabled = false;
+    	// Tinder like prompting messages here
+    	$chatOutput.append('Say hi!<br>');
+    	$chatInput.focus();
+    };
+
+    channel.onmessage = function (message, userid) {
+    	$chatOutput.append('<span style="color:#fac03b"><b>Stranger:</b></span> ' + message + '<br />');
+    	chatOutput.scrollTop = chatOutput.scrollHeight;
+    };
+
+    channel.onleave = function (userid) {
+    	//$chatOutput.innerHTML = userid + ' Left.<hr />' + $chatOutput.innerHTML;
+    };
+
+
+
     
 // check if browser will support vchat
 function vchatCheck() {
