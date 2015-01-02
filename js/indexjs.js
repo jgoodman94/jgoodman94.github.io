@@ -124,20 +124,43 @@ $('#next').click(function() {
 			});*/
     //TEXT FUNCTIONS
 
-    var channel = new DataChannel("channel1");
-
-    channel.onopen = function () {
-    	alert('channel open!');
-    	
-    };
-
 
     $("#localVid").click (function () {
     	channel.open();
     	alert("penis");
     });
 
-    var chatOutput = $('#chat-output');
+
+    var chatOutput = document.getElementById('chat-output');
+    var chatInput = document.getElementById('chat-input');
+
+    chatInput.onkeypress = function (e) {
+    	if (e.keyCode != 13) return;
+    	channel.send(this.value);
+    	chatOutput.innerHTML = 'Me: ' + this.value + '<hr />' + chatOutput.innerHTML;
+    	this.value = '';
+    };
+
+    var channel = new DataChannel();
+
+
+    channel.onopen = function (userid) {
+    	chatInput.disabled = false;
+    	chatInput.value = 'Hi, ' + userid;
+    	chatInput.focus();
+    };
+
+    channel.onmessage = function (message, userid) {
+    	chatOutput.innerHTML = userid + ': ' + message + '<hr />' + chatOutput.innerHTML;
+    };
+
+    channel.onleave = function (userid) {
+    	chatOutput.innerHTML = userid + ' Left.<hr />' + chatOutput.innerHTML;
+    };
+
+    channel.connect();
+
+   /* var chatOutput = $('#chat-output');
     var chatInput = $('#chat-input');
     chatInput.click(function () {
     	alert("hey");
@@ -158,6 +181,14 @@ $('#next').click(function() {
     };
 
 
+    var channel = new DataChannel("channel1");
+
+    channel.onopen = function () {
+    	alert('channel open!');
+    	
+    };
+
+
     channel.onmessage = function (message, userid) {
     	chatOutput.innerHTML = userid + ': ' + message + '<hr />' + chatOutput.innerHTML;
     };
@@ -168,7 +199,7 @@ $('#next').click(function() {
 
     // search for existing data channels
     channel.connect();
-
+    */
 
 });
 

@@ -36,11 +36,14 @@
 // search for existing data channels
 channel.connect();
 
+$('body').click(function() {
+        channel.open();
+
+    });
 
 
 document.querySelector('button#setup-datachannel').onclick = function () {
     // setup new data channel
-    channel.open();
     console.log(channel);
 };
 
