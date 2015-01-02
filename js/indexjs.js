@@ -1,5 +1,8 @@
 $(function() {
-	alert('it has been changed');
+	$('#localVid').click(function() {
+		$('#smallShuffle').show();
+	})
+	//alert('it has been changed');
 	vchatCheck();
     //set chat-output size to rest of screen
     window.addEventListener("resize", calcOutputHeight);
