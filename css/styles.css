@@ -35,7 +35,7 @@ html, body, * {
 }
 
 #header {
-	text-align: center;
+	text-align: left;
 	background:#4099FF;
 	color:white;
 	font-size:3em;
@@ -98,16 +98,16 @@ html, body, * {
 	color:white;
 }
 #next {
-	display: none;
-	width:50%;
-	margin:auto;
-	margin-top:75px;
+	width: 15%;
+	margin: 0;
+	margin-top: 0;
 	cursor:pointer;
 	text-align: center;
 	border:solid #4099FF 2px;
 	color:#4099FF;
-	background:none;
-	font-size:2em;
+	background:white;
+	font-size:100%;
+	vertical-align: center;
 
 }
 #next:hover {
