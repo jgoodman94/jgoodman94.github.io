@@ -74,7 +74,7 @@ $(function() {
         chatInput.disabled = false;
         $('#disconnected').hide();
         $('#doggy').hide();
-        $('#smallShuffle').slideDown(500);
+        $('#smallShuffle').show();
         $('.spinner').hide();
         $chatOutput.append('<b>Say hi!</b><br>');
         $chatInput.focus();
