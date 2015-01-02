@@ -145,17 +145,18 @@ html, body, * {
 	bottom:0;
 }
 #smallShuffle {
+	outline: none;
 	z-index: 100;
 	color:#4099FF;
 	font-size: 1em;
 	line-height:40px; /*header size */
 	border-top-left-radius: 0px;
 	border-top-right-radius: 0px;
-
 }
 
 #bigShuffle {
 	display: none;
+	outline: none;
 	width: 100%;
 	font-size: 2em;
 	color: #4099FF;
