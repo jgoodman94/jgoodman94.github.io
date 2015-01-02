@@ -62,11 +62,7 @@ $('#localVid').click(function() {
 }
 
 webrtc.on('message', function(){
-	if (message.type === 'offer') {
-	} else if (message.type === 'chat') {
-		console.log('>>>>> chat ');
-		console.log(message); 
-	}
+	
 });
 
 
