@@ -89,7 +89,7 @@ $(function() {
        chatInput.disabled = true;
        $('#disconnected').show();
        $('#doggy').show();
-       $('#bigShuffle').show();
+       $('.next').show();
    });
 
     /* deal with color changes
