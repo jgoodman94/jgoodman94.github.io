@@ -1,5 +1,5 @@
 $(function() {
-	alert('it has been changed');
+	//alert('it has been changed');
 	vchatCheck();
     //set chat-output size to rest of screen
     window.addEventListener("resize", calcOutputHeight);
@@ -71,7 +71,6 @@ $(function() {
     	window.clearTimeout(giveUp);
     	looking = false;
         //id = "undefined";
-        chatInput.disabled = false;
         $('#disconnected').hide();
         $('#doggy').hide();
         $('#smallShuffle').show();
@@ -174,10 +173,11 @@ function addRequest(webrtc) {
 
 
             // channel handlers
+
             channel.onopen = function() {
+            	chatInput.disabled = false;
             	//$('.spinner').hide();
-            	$('#smallShuffle').css('color','#4099FF');
-            	//$chatInput.disabled = false;
+                        	//$chatInput.disabled = false;
                 // Tinder like prompting messages here
                // $chatOutput.append('<b>Say hi!</b><br>');
                // $chatInput.focus();
@@ -222,6 +222,7 @@ function searchRequest(webrtc) {
 
                 // channel handlers
                 channel.onopen = function() {
+                	chatInput.disabled = false;
                 	//$('.spinner').hide();
                 	//chatInput.disabled = false;
                     // Tinder like prompting messages here
