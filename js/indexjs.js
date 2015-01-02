@@ -50,17 +50,32 @@ $(function() {
     	$('#next').show();
     });
 
-    // deal with color changes
+    /* deal with color changes
     webrtc.on('sepia', function(data) {
     	console.log('sepia sent?');
-    })
+    })*/
 
 
-    $('#next').click(function() {
-    	webrtc.leaveRoom();
-    	looking = true;
-    	$('#disconnected').hide();
-    	$('#responsive').hide();
+$('#localVid').click(function() {
+	webrtc.sendToAll('chat', {data: '!!!some text!!!'});
+	peer.send('chat', {data: '!!!!!!!!!!! sent via A'});
+}
+
+webrtc.on('message', function(message){
+	if (message.type === 'offer') {
+	} else if (message.type === 'chat') {
+		console.log('>>>>> chat ');
+		console.log(message); 
+	}
+});
+
+
+
+$('#next').click(function() {
+	webrtc.leaveRoom();
+	looking = true;
+	$('#disconnected').hide();
+	$('#responsive').hide();
     	// look for some frands, join if there
     	$('#next').hide();
     	searchRequest(webrtc);
@@ -89,11 +104,11 @@ $(function() {
 			document.getElementById("localVid").addEventListener('click', changeFilter, false);
 
 
-			// send filters to other person
+			/*send filters to other person
 			$('#localVid').click(function(peer) {
 				peer.send('sepia');
-			});
-		});
+			});*/
+});
 
 function addRequest(webrtc) {
 	var Request = Parse.Object.extend("Request");
