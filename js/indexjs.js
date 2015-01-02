@@ -1,5 +1,5 @@
 $(function() {
-	alert('it has been changed');
+	//alert('it has been changed');
 	vchatCheck();
     //set chat-output size to rest of screen
     window.addEventListener("resize", calcOutputHeight);
@@ -208,7 +208,7 @@ function searchRequest(webrtc) {
                 channel.connect(request.id);
 
 
-                
+
     channel.onopen = function() {
         $chatInput.disabled = false;
         // Tinder like prompting messages here
