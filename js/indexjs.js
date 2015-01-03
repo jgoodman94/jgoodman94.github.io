@@ -2,28 +2,9 @@ $(function() {
        // initialize with API key
        Parse.initialize("cLQ1TweezsDIp2ysSvYvXETLozVZIMdRfExqEg7u", "fgapofWIKhtAQfuToqAbRRlNHCAfBbFR6pusDzBk");
 
-       $(window).unload(function() {
-        //increase users online
-    // Create a pointer to an object of class Point with id dlkj83d
-    var Point = Parse.Object.extend("Online");
-    var point = new Point();
-    point.id = "sNus417KBq";
-
-    // decrement onleave
-    point.increment("usersOnline", -4);
-
-    // Save
-    point.save(null, {
-        success: function(point) {
-            // Saved successfully.
-        },
-        error: function(point, error) {
-            // The save failed.
-            // error is a Parse.Error with an error code and description.
-        }
-    });
-
-})
+       $(window).bind('beforeunload', function() {
+            decrementUsers();
+});
        
     //increase users online
     // Create a pointer to an object of class Point with id dlkj83d
@@ -373,8 +354,8 @@ function rageQuit() {
         return "There'll be more people on later, we promise.";
     }
     // reset things on leaving page
-    window.onunload = function(e) {
-        
+    window.onbeforeunload = function(e) {
+
         if (looking == true)
             return rageQuit();
 
@@ -400,6 +381,29 @@ function rageQuit() {
             onlineCount = ":)";
 }
 });
+
+}
+
+function decrementUsers() {
+            //decrease users online
+    // Create a pointer to an object of class Point with id dlkj83d
+    var Point = Parse.Object.extend("Online");
+    var point = new Point();
+    point.id = "sNus417KBq";
+
+    // decrement onleave
+    point.increment("usersOnline", -1);
+
+    // Save
+    point.save(null, {
+        success: function(point) {
+            // Saved successfully.
+        },
+        error: function(point, error) {
+            // The save failed.
+            // error is a Parse.Error with an error code and description.
+        }
+    });
 
 }
 
