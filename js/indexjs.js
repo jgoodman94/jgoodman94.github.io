@@ -215,48 +215,49 @@
 
   // returns either request id or undefined
   function searchRequest(webrtc) {
-  $('.spinner').show();
-  var Request = Parse.Object.extend("Request");
-  var requestQuery = new Parse.Query(Request);
-  requestQuery.first({
-              success: function(request) {
-                  // entry is in database
-                  // join room of other person, then destroy that persons
-                  if (request != undefined) {
-                      textID = request.id;
-                      console.log("matched to: " + request.id);
+      $('.spinner').show();
+      var Request = Parse.Object.extend("Request");
+      var requestQuery = new Parse.Query(Request);
+      requestQuery.first({
+          success: function(request) {
+              // entry is in database
+              // join room of other person, then destroy that persons
+              if (request != undefined) {
+                  textID = request.id;
+                  console.log("matched to: " + request.id);
 
 
-                      // join webrtc and text chat rooms
-                      webrtc.joinRoom(request.id);
-                      conn = peer.connect(request.attributes.peerID);
+                  // join webrtc and text chat rooms
+                  webrtc.joinRoom(request.id);
+                  conn = peer.connect(request.attributes.peerID);
 
-                      conn.on('open', function() {
-                          // Receive messages
-                          conn.on('data', function(data) {
-                              console.log('Received', data);
-                              $chatOutput.append('<span style="color:#4099FF"><b>Stranger</b>:</span> ' + data + '<br />');
-                          });
-
-                          // Send messages
-                          conn.send('whatsup bro??');
+                  conn.on('open', function() {
+                      // Receive messages
+                      conn.on('data', function(data) {
+                          console.log('Received', data);
+                          $chatOutput.append('<span style="color:#4099FF"><b>Stranger</b>:</span> ' + data + '<br />');
                       });
+
+                      // Send messages
+                      conn.send('whatsup bro??');
                   });
 
 
 
 
-              destroyPartner(request.id);
+                  destroyPartner(request.id);
+                  return;
+              }
+              // entry is not in database;
+              console.log("search returned no matches");
+              console.log('about to add request...');
+              addRequest(webrtc);
               return;
+          },
+          error: function(error) {
+              alert("Error: " + error.code + " " + error.message);
           }
-          // entry is not in database;
-          console.log("search returned no matches"); console.log('about to add request...'); addRequest(webrtc);
-          return;
-      },
-      error: function(error) {
-          alert("Error: " + error.code + " " + error.message);
-      }
-  });
+      });
   }
 
 
