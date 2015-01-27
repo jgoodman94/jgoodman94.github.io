@@ -2,7 +2,7 @@
 
   $(function() {
 
-      var peer = new Peer({
+      peer = new Peer({
           key: 'lwjd5qra8257b9'
       }); // this is me
       peer.on('open', function(id) {
