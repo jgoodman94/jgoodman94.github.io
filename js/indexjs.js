@@ -107,8 +107,6 @@
       webrtc.on('peerStreamRemoved', function() {
           // leave rooms when ur friend leaves
           webrtc.leaveRoom();
-          peer.disconnect();
-          peer.reconnect();
           $chatOutput.html('');
           chatInput.disabled = true;
           $('#disconnected').show();
@@ -142,8 +140,6 @@
     $('#smallShuffle').css('color', 'lightgrey');
           // leave rooms when u click next
           webrtc.leaveRoom();
-          peer.disconnect();
-          peer.reconnect();
           $chatOutput.html('');
 
           looking = true;
@@ -200,6 +196,9 @@
               peer.on('connection', function(myConn) {
                 console.log('PEERJS: someone finally answered!');
 
+                console.log(peer.connections);
+
+
                 conn = myConn;
 
                 conn.on('open', function() {
@@ -235,6 +234,8 @@
                   // join webrtc and text chat rooms
                   webrtc.joinRoom(request.id);
                   conn = peer.connect(request.attributes.peerID);
+
+                  console.log(peer.connections);
 
                   conn.on('open', function() {
                       // Receive messages
