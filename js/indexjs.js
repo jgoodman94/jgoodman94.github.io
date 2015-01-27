@@ -196,14 +196,7 @@
               peer.on('connection', function(conn) {
                 console.log('PEERJS: someone finally answered!');
 
-                
-                $chatInput.keyup(function(e) {
-                  if (e.keyCode != 13) return;
-                  $chatOutput.append('<span style="color:#4099FF"><b>Me</b>:</span> ' + this.value + '<br />');
-                  conn.send(this.value);
-                  chatOutput.scrollTop = chatOutput.scrollHeight;
-                  this.value = '';
-                });
+                conn = conn;
 
                 conn.on('open', function() {
                       // Receive messages
