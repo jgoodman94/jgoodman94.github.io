@@ -193,10 +193,10 @@
               webrtc.joinRoom(myID);
 
               // prepare to receive connection, after you added it to parse
-              peer.on('connection', function(conn) {
+              peer.on('connection', function(myConn) {
                 console.log('PEERJS: someone finally answered!');
 
-                conn = conn;
+                conn = myConn;
 
                 conn.on('open', function() {
                       // Receive messages
