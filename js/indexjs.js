@@ -107,6 +107,8 @@
       webrtc.on('peerStreamRemoved', function() {
           // leave rooms when ur friend leaves
           webrtc.leaveRoom();
+          peer.disconnect();
+          console.log(peer.disconnected);
           $chatOutput.html('');
           chatInput.disabled = true;
           $('#disconnected').show();
