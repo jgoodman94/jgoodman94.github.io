@@ -30,7 +30,6 @@
           $("#chat-output").height(leftover);
           $("#chat-output-row").height(leftover);
       };
-      channel = new DataChannel();
 
       //TEXT FUNCTIONS
       $chatOutput = $('#chat-output');
@@ -44,7 +43,6 @@
 
       $chatInput.keyup(function(e) {
           if (e.keyCode != 13) return;
-          channel.send(this.value);
           $chatOutput.append('<span style="color:#4099FF"><b>Me</b>:</span> ' + this.value + '<br />');
           chatOutput.scrollTop = chatOutput.scrollHeight;
           this.value = '';
@@ -77,7 +75,6 @@
 
           looking = true;
           giveUpIn(10000);
-          channel = new DataChannel();
           $('#childTop').html('');
           $('#childFoot').html('');
           // look for some frands, join if there
@@ -109,7 +106,6 @@
       webrtc.on('peerStreamRemoved', function() {
           // leave rooms when ur friend leaves
           webrtc.leaveRoom();
-          // channel.leave();
           $chatOutput.html('');
           chatInput.disabled = true;
           $('#disconnected').show();
@@ -143,7 +139,6 @@
           $('#smallShuffle').css('color', 'lightgrey');
           // leave rooms when u click next
           webrtc.leaveRoom();
-          // channel.leave();
           $chatOutput.html('');
 
           looking = true;
@@ -195,7 +190,6 @@
               console.log("Request added under id: " + myID);
               //create webrtc room and text chat room
               webrtc.joinRoom(myID);
-              channel.open(myID);
 
               // prepare to receive connection, after you added it to parse
               peer.on('connection', function(conn) {
@@ -212,32 +206,6 @@
                   });
 
               });
-
-
-              // channel handlers
-              channel.onopen = function() {
-                  //$('.spinner').hide();
-                  $('#smallShuffle').css('color', '#4099FF');
-                  //$chatInput.disabled = false;
-                  // Tinder like prompting messages here
-                  // $chatOutput.append('<b>Say hi!</b><br>');
-                  // $chatInput.focus();
-              };
-
-              channel.onmessage = function(message) {
-                  $chatOutput.append('<span style="color:#fac03b"><b>Stranger:</b></span> ' + message + '<br />');
-                  chatOutput.scrollTop = chatOutput.scrollHeight;
-              };
-
-              /* channel.ondatachannel = function() {
-                  alert('new person here!');
-               }
-               */
-              channel.onleave = function() {
-                  channel = new DataChannel();
-                  //$chatInput.disabled = true;
-                  //$chatOutput.innerHTML = userid + ' Left.<hr />' + $chatOutput.innerHTML;
-              };
 
 
           },
@@ -263,7 +231,6 @@
 
                   // join webrtc and text chat rooms
                   webrtc.joinRoom(request.id);
-                  channel.connect(request.id);
                   var conn = peer.connect(request.attributes.peerID);
 
                   conn.on('open', function() {
@@ -276,26 +243,7 @@
                       conn.send('Hello!');
                   });
 
-                  // channel handlers
-                  channel.onopen = function() {
-                      //$('.spinner').hide();
-                      //chatInput.disabled = false;
-                      // Tinder like prompting messages here
-                      //  $chatOutput.append('<b>Say hi!</b><br>');
-                      //  $chatInput.focus();
-                  };
-
-                  channel.onmessage = function(message) {
-                      $chatOutput.append('<span style="color:#fac03b"><b>Stranger:</b></span> ' + message + '<br />');
-                      chatOutput.scrollTop = chatOutput.scrollHeight;
-                  };
-
-                  channel.onleave = function() {
-                      channel = new DataChannel();
-
-                      //$chatInput.disabled = true;
-                      //$chatOutput.innerHTML = userid + ' Left.<hr />' + $chatOutput.innerHTML;
-                  };
+                 
 
 
                   destroyPartner(request.id);
