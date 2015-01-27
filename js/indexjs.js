@@ -107,6 +107,8 @@
       webrtc.on('peerStreamRemoved', function() {
           // leave rooms when ur friend leaves
           webrtc.leaveRoom();
+          peer.disconnect();
+          peer.reconnect();
           $chatOutput.html('');
           chatInput.disabled = true;
           $('#disconnected').show();
@@ -140,6 +142,8 @@
     $('#smallShuffle').css('color', 'lightgrey');
           // leave rooms when u click next
           webrtc.leaveRoom();
+          peer.disconnect();
+          peer.reconnect();
           $chatOutput.html('');
 
           looking = true;
@@ -209,7 +213,7 @@
               });
             },
             error: function() {
-              console.log("something's fucked up");
+              console.log("some error");
             }
           });
 }
@@ -239,7 +243,6 @@
                         $chatOutput.append('<span style="color:#ff8f00"><b>Stranger</b>:</span> ' + data + '<br />');
                         chatOutput.scrollTop = chatOutput.scrollHeight;
                       });
-
                     });
 
 
