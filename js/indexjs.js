@@ -203,6 +203,7 @@
                       conn.on('data', function(data) {
                         console.log('Received', data);
                         $chatOutput.append('<span style="color:#ff8f00"><b>Stranger</b>:</span> ' + data + '<br />');
+                        chatOutput.scrollTop = chatOutput.scrollHeight;
                       });
                     });
               });
@@ -236,6 +237,7 @@
                       conn.on('data', function(data) {
                         console.log('Received', data);
                         $chatOutput.append('<span style="color:#ff8f00"><b>Stranger</b>:</span> ' + data + '<br />');
+                        chatOutput.scrollTop = chatOutput.scrollHeight;
                       });
 
                     });
