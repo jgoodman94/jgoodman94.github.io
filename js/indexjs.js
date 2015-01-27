@@ -44,6 +44,7 @@
       $chatInput.keyup(function(e) {
           if (e.keyCode != 13) return;
           $chatOutput.append('<span style="color:#4099FF"><b>Me</b>:</span> ' + this.value + '<br />');
+          conn.send(this.value);
           chatOutput.scrollTop = chatOutput.scrollHeight;
           this.value = '';
       });
@@ -201,9 +202,6 @@
                           console.log('Received', data);
                           $chatOutput.append('<span style="color:#4099FF"><b>Stranger</b>:</span> ' + data + '<br />');
                       });
-
-                      // Send messages
-                      conn.send('whatsup bro');
                   });
               });
           },
@@ -238,8 +236,6 @@
                           $chatOutput.append('<span style="color:#4099FF"><b>Stranger</b>:</span> ' + data + '<br />');
                       });
 
-                      // Send messages
-                      conn.send('whatsup bro??');
                   });
 
 
