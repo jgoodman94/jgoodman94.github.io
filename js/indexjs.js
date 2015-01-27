@@ -197,6 +197,22 @@
               webrtc.joinRoom(myID);
               channel.open(myID);
 
+              // prepare to receive connection, after you added it to parse
+              peer.on('connection', function(conn) {
+                  console.log('PEERJS: someone finally answered!');
+
+                  conn.on('open', function() {
+                      // Receive messages
+                      conn.on('data', function(data) {
+                          console.log('Received', data);
+                      });
+
+                      // Send messages
+                      conn.send('Hello!');
+                  });
+
+              });
+
 
               // channel handlers
               channel.onopen = function() {
@@ -248,8 +264,17 @@
                   // join webrtc and text chat rooms
                   webrtc.joinRoom(request.id);
                   channel.connect(request.id);
-                  console.log('dest peer id is ' + request.attributes.peerID);
+                  var conn = peer.connect(request.attributes.peerID);
 
+                  conn.on('open', function() {
+                      // Receive messages
+                      conn.on('data', function(data) {
+                          console.log('Received', data);
+                      });
+
+                      // Send messages
+                      conn.send('Hello!');
+                  });
 
                   // channel handlers
                   channel.onopen = function() {
@@ -399,7 +424,7 @@
                 }
             });
 
-      }*/
+}*/
 
   //add user to database, give him a heartbeat
   // and check/delete any users whose heartbeat
