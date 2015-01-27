@@ -75,7 +75,7 @@
 
 
         looking = true;
-        giveUpIn(10000);
+        giveUpIn(HEARTBEAT_TIME);
         $('#childTop').html('');
         $('#childFoot').html('');
           // look for some frands, join if there
@@ -143,7 +143,7 @@
           $chatOutput.html('');
 
           looking = true;
-          giveUpIn(10000);
+          giveUpIn(HEARTBEAT_TIME);
           $('#disconnected').hide();
           $('#doggy').hide();
           // look for some frands, join if there
